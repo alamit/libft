@@ -6,7 +6,7 @@
 #    By: alamit <alamit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2018/11/10 18:25:59 by alamit           ###   ########.fr        #
+#    Updated: 2018/11/10 18:34:16 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,8 +42,8 @@ TEST_SRC = $(SRC:%=test_%)
 all: $(NAME)
 
 $(NAME): $(SRC:%.c=$(SRC_DIR)/%.c)
-	$(CC) $(CFLAGS) $(IFLAGS) $(LFLAGS) -c $(SRC:%.c=$(SRC_DIR)/%.c)
-	ar -rcs $(NAME) $(OUT)
+	@$(CC) $(CFLAGS) $(IFLAGS) $(LFLAGS) -c $(SRC:%.c=$(SRC_DIR)/%.c)
+	@ar -rcs $(NAME) $(OUT)
 
 test: INCLUDE_DIRS += $(TEST_LIBS:%=$(TEST_DIR)/lib/%/include) $(TEST_DIR)
 test: LIB_DIRS += $(TEST_LIBS:%=$(TEST_DIR)/lib/%)
@@ -55,7 +55,8 @@ test: clean
 	@$(MAKE_LIBS)
 	@echo Done.
 	@echo Building $(NAME) with tests...
-	@$(CC) $(CFLAGS) $(IFLAGS) $(LFLAGS) -o $(TEST_NAME) $(TEST_MAIN) $(SRC:%.c=$(SRC_DIR)/%.c) $(TEST_SRC:%.c=$(TEST_DIR)/%.c)
+	@$(CC) $(CFLAGS) $(IFLAGS) $(LFLAGS) -o $(TEST_NAME) $(TEST_MAIN) \
+		$(SRC:%.c=$(SRC_DIR)/%.c) $(TEST_SRC:%.c=$(TEST_DIR)/%.c)
 	@echo Done.
 	@echo Running tests...
 	@./$(TEST_NAME)
@@ -69,6 +70,6 @@ clean:
 	@$(RM) $(TEST_NAME)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean $(NAME)
