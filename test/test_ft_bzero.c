@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   run_tests.c                                        :+:      :+:    :+:   */
+/*   test_ft_bzero.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/10 17:47:14 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/12 10:51:50 by alamit           ###   ########.fr       */
+/*   Created: 2018/11/12 10:50:58 by alamit            #+#    #+#             */
+/*   Updated: 2018/11/12 10:56:55 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <test.h>
+#include <test42f.h>
+#include <ft.h>
 
-int		main(void)
+void	test_ft_bzero(void)
 {
-	test_ft_memset();
-	test_ft_bzero();
-	return (0);
+	printf("%sTesting ft_bzero%s\n", KCYN, KNRM);
+
+	int t1[] = {1, 1, 1, 1};
+	int	exp1[] = {0, 1, 1, 1};
+	ft_bzero(t1, sizeof(int));
+	test42f_intarr_eq("Change four bytes of int array sets 1st elem to 0",
+						4,
+						t1,
+						exp1);
 }

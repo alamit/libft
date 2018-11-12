@@ -6,7 +6,7 @@
 #    By: alamit <alamit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2018/11/10 18:34:16 by alamit           ###   ########.fr        #
+#    Updated: 2018/11/12 10:57:52 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ RM = rm -rf
 # TARGET CONFIG #
 
 NAME = libft.a
-SRC = ft_memset.c
+SRC = ft_memset.c ft_bzero.c
 
 SRC_DIR = src
 INCLUDE_DIRS = include

@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   run_tests.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/10 17:47:14 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/12 10:51:50 by alamit           ###   ########.fr       */
+/*   Created: 2018/11/12 10:49:05 by alamit            #+#    #+#             */
+/*   Updated: 2018/11/12 10:50:41 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <test.h>
+#include <ft.h>
+#include <string.h>
 
-int		main(void)
+void	ft_bzero(void *s, size_t n)
 {
-	test_ft_memset();
-	test_ft_bzero();
-	return (0);
+	ft_memset(s, 0, n);
 }

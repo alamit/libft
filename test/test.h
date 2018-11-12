@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 17:48:16 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/10 17:49:00 by alamit           ###   ########.fr       */
+/*   Updated: 2018/11/12 10:52:06 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 # define TEST_H
 
 void	test_ft_memset(void);
+void	test_ft_bzero(void);
 
 #endif
