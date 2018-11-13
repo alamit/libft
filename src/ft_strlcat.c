@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/10 16:10:24 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/13 11:12:51 by alamit           ###   ########.fr       */
+/*   Created: 2018/11/12 17:24:37 by alamit            #+#    #+#             */
+/*   Updated: 2018/11/13 11:12:53 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include <libft.h>
 
-void	*ft_memset(void *b, int c, size_t len)
+size_t	ft_strlcat(char *dst, char *src, size_t dstsize)
 {
 	size_t	i;
 
-	i = 0;
-	while (i < len)
-		((unsigned char *)b)[i++] = (unsigned char)c;
-	return (b);
+	i = ft_strlen(dst);
+	if (dstsize == 0 || dstsize <= i)
+		return (dstsize + ft_strlen(src));
+	while (*src && i < dstsize - 1)
+	{
+		dst[i] = *src;
+		src++;
+		i++;
+	}
+	dst[i] = '\0';
+	return (dstsize + ft_strlen(src) - 1);
 }

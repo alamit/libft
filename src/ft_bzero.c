@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 10:49:05 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/12 10:50:41 by alamit           ###   ########.fr       */
+/*   Created: 2018/11/13 11:24:16 by alamit            #+#    #+#             */
+/*   Updated: 2018/11/13 11:29:33 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft.h>
+#include <libft.h>
 #include <string.h>
 
 void	ft_bzero(void *s, size_t n)

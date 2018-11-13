@@ -6,7 +6,7 @@
 #    By: alamit <alamit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2018/11/12 10:57:52 by alamit           ###   ########.fr        #
+#    Updated: 2018/11/13 11:23:11 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,10 @@ RM = rm -rf
 # TARGET CONFIG #
 
 NAME = libft.a
-SRC = ft_memset.c ft_bzero.c
-
+SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
+		ft_memchr.c ft_memcmp.c ft_strlen.c ft_strdup.c ft_strcpy.c \
+		ft_strncpy.c ft_strcat.c ft_strncat.c ft_strlcat.c ft_strchr.c \
+		ft_strrchr.c ft_strstr.c ft_strnstr.c ft_strcmp.c ft_atoi.c
 SRC_DIR = src
 INCLUDE_DIRS = include
 #LIB_DIRS = #YOUR_LIB_DIRS#
@@ -55,7 +57,7 @@ test: clean
 	@$(MAKE_LIBS)
 	@echo Done.
 	@echo Building $(NAME) with tests...
-	@$(CC) $(CFLAGS) $(IFLAGS) $(LFLAGS) -o $(TEST_NAME) $(TEST_MAIN) \
+	@$(CC) -g $(CFLAGS) $(IFLAGS) $(LFLAGS) -o $(TEST_NAME) $(TEST_MAIN) \
 		$(SRC:%.c=$(SRC_DIR)/%.c) $(TEST_SRC:%.c=$(TEST_DIR)/%.c)
 	@echo Done.
 	@echo Running tests...

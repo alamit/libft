@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/10 16:07:34 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/12 10:54:44 by alamit           ###   ########.fr       */
+/*   Created: 2018/11/13 00:09:16 by alamit            #+#    #+#             */
+/*   Updated: 2018/11/13 11:54:53 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_H
-# define FT_H
+#include <string.h>
 
-# include <string.h>
+char		*ft_strstr(const char *haystack, const char *needle)
+{
+	size_t	i;
 
-void	*ft_memset(void *b, int c, size_t len);
-void	ft_bzero(void *s, size_t n);
-#endif
+	if (*needle == '\0')
+		return ((char *)haystack);
+	while (*haystack)
+	{
+		i = 0;
+		while (needle[i] && needle[i] == haystack[i])
+			++i;
+		if (needle[i] == '\0')
+			return ((char *)haystack);
+		++haystack;
+	}
+	return (NULL);
+}

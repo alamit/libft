@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/10 16:10:24 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/13 11:12:51 by alamit           ###   ########.fr       */
+/*   Created: 2018/11/13 11:28:26 by alamit            #+#    #+#             */
+/*   Updated: 2018/11/13 11:32:01 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < len)
-		((unsigned char *)b)[i++] = (unsigned char)c;
-	return (b);
+	while (n)
+	{
+		((unsigned char *)dst)[n - 1] = ((unsigned char *)src)[n - 1];
+		n--;
+	}
+	return (dst);
 }
