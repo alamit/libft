@@ -6,7 +6,7 @@
 #    By: alamit <alamit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 15:56:07 by alamit            #+#    #+#              #
-#    Updated: 2018/11/10 17:53:28 by alamit           ###   ########.fr        #
+#    Updated: 2018/11/12 12:36:21 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ RM = rm -rf
 all: $(NAME)
 
 $(NAME): $(SRC)
-	@$(CC) $(CFLAGS) $(IFLAGS) $(LFLAGS) -c $(SRC)
+	@$(CC) $(CFLAGS) $(IFLAGS) $(LFLAGS) -c -g $(SRC)
 	@ar -rcs $(NAME) $(OUT)
 
 clean:
