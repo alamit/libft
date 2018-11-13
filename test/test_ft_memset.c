@@ -6,12 +6,12 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 17:44:31 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/10 19:13:46 by alamit           ###   ########.fr       */
+/*   Updated: 2018/11/12 15:41:16 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <test42f.h>
-#include <ft.h>
+#include <libft.h>
 
 void	test_ft_memset(void)
 {

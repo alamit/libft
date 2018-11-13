@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_ft_bzero.c                                    :+:      :+:    :+:   */
+/*   test_ft_memcmp.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 10:50:58 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/12 15:40:25 by alamit           ###   ########.fr       */
+/*   Created: 2018/11/12 15:30:44 by alamit            #+#    #+#             */
+/*   Updated: 2018/11/12 16:12:37 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <test42f.h>
 #include <libft.h>
+#include <test42f.h>
 
-void	test_ft_bzero(void)
+void	test_ft_memcmp(void)
 {
-	printf("%sTesting ft_bzero%s\n", KCYN, KNRM);
+	printf("%sTesting ft_memcmp.%s\n", KCYN, KNRM);
 
-	int t1[] = {1, 1, 1, 1};
-	int	exp1[] = {0, 1, 1, 1};
-	ft_bzero(t1, sizeof(int));
-	test42f_intarr_eq("Change four bytes of int array sets 1st elem to 0",
-						4,
-						t1,
-						exp1);
+	test42f_int_eq("Comparing more bytes than strlen",
+					ft_memcmp("\xff\xaa\xde\x12", "\xff\xaa\xde\x12MACOSAAAAA", 4),
+					memcmp("\xff\xaa\xde\x12", "\xff\xaa\xde\x12MACOSAAAAA", 4));
 }
