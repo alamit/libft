@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 17:47:14 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/12 18:22:13 by alamit           ###   ########.fr       */
+/*   Updated: 2018/11/13 16:32:30 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@ int		main(void)
 	test_ft_memccpy();
 	test_ft_memcmp();
 	test_ft_strlcat();
+	test_ft_strstr();
+	test_ft_atoi();
 	return (0);
 }
