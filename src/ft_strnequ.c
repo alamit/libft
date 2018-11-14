@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   run_tests.c                                        :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/10 17:47:14 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/14 00:07:34 by alamit           ###   ########.fr       */
+/*   Created: 2018/11/13 21:25:41 by alamit            #+#    #+#             */
+/*   Updated: 2018/11/13 21:32:36 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <test.h>
+#include <libft.h>
+#include <string.h>
 
-int		main(void)
+int		ft_strnequ(const char *s1, const char *s2, size_t n)
 {
-	test_ft_memset();
-	test_ft_bzero();
-	test_ft_memcpy();
-	test_ft_memccpy();
-	test_ft_memcmp();
-	test_ft_strlcat();
-	test_ft_strstr();
-	test_ft_atoi();
-	test_ft_strtrim();
-	return (0);
+	if (s1 == s2)
+		return (1);
+	else if (s1 == NULL || s2 == NULL)
+		return (0);
+	return (ft_strncmp(s1, s2, n) == 0);
 }
