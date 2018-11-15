@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 17:48:16 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/14 00:07:20 by alamit           ###   ########.fr       */
+/*   Updated: 2018/11/14 15:18:19 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ void	test_ft_strlcat(void);
 void	test_ft_strstr(void);
 void	test_ft_atoi(void);
 void	test_ft_strtrim(void);
+void	test_ft_strsplit(void);
 #endif
