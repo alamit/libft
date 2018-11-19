@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 16:07:34 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/19 14:54:33 by alamit           ###   ########.fr       */
+/*   Updated: 2018/11/19 15:09:33 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 
 void			*ft_memalloc(size_t size);
+void			*ft_memdup(const void *src, size_t size);
 void			ft_memdel(void **ap);
 
 
