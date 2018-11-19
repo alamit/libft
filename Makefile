@@ -6,7 +6,7 @@
 #    By: alamit <alamit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2018/11/13 21:23:31 by alamit           ###   ########.fr        #
+#    Updated: 2018/11/19 14:41:19 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,10 +31,11 @@ SRC += ft_memalloc.c ft_memdel.c ft_strnew.c ft_strdel.c ft_strclr.c \
 		ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c ft_strequ.c \
 		ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c ft_strsplit.c \
 		ft_itoa.c ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c \
-		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
+		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+		ft_itoa_buf.c
 
-SRC_DIR = src
-INCLUDE_DIRS = include
+SRC_DIR = .
+INCLUDE_DIRS = .
 #LIB_DIRS = #YOUR_LIB_DIRS#
 #LIBS = #YOUR_LIBS#
 

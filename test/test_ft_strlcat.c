@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 18:18:03 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/12 22:00:18 by alamit           ###   ########.fr       */
+/*   Updated: 2018/11/19 12:13:48 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,15 @@ void	test_ft_strlcat(void)
 	test42f_int_eq("check 4",
 					ft_strlcat(buff1, str, 0),
 					strlcat(buff1, str, 0));
+
+	char	*dest;
+	char	*dest1;
+	dest = ft_memalloc(15);
+	dest1 = ft_memalloc(15);
+	memset(dest, 'r', 6);
+	memset(dest1, 'r', 6);
+	dest[11] = 'a';
+	dest1[11] = 'a';
+	test42f_int_eq("check 5", ft_strlcat(dest, "lorem", 15), strlcat(dest1, "lorem", 15));
+	test42f_str_eq("check 6", dest, dest1);
 }

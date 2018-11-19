@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 15:15:04 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/14 19:24:59 by alamit           ###   ########.fr       */
+/*   Updated: 2018/11/19 13:03:12 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,11 @@ void	test_ft_strsplit(void)
 	test42f_strarr_eq("Test 2",
 						ft_strsplit(str1, ' '),
 						exp1);
+
+	char	str2[] = "         ";
+	char	*exp2[] = {NULL};
+
+	test42f_ptr_eq("Test 3",
+						ft_strsplit(str2, ' ')[0],
+						exp2[0]);
 }
