@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   draft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 20:38:29 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/21 15:54:22 by alamit           ###   ########.fr       */
+/*   Created: 2018/11/21 15:48:08 by alamit            #+#    #+#             */
+/*   Updated: 2018/11/21 15:57:05 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <libft.h>
 
-void	ft_striter(char *s, void (*f)(char *))
+void	a(char *c)
 {
-	if (s && f)
-	{
-		while (*s)
-			f(s++);
-	}
+	*c = '@';
+}
+
+int		main(void)
+{
+	char s[] = "abcde";
+	ft_putendl(s);
+	ft_striter(s, a);
+	ft_putendl(s);
 }

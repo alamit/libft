@@ -6,7 +6,7 @@
 #    By: alamit <alamit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2018/11/21 14:38:11 by alamit           ###   ########.fr        #
+#    Updated: 2018/11/21 15:52:04 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ RM = rm -rf
 # TARGET CONFIG #
 
 NAME = libft.a
+DRAFT = draft
 # libc functions
 SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 		ft_memchr.c ft_memcmp.c ft_strlen.c ft_strdup.c ft_strcpy.c \
@@ -46,11 +47,18 @@ OUT := $(SRC:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(SRC:%.c=$(SRC_DIR)/%.c)
-	@$(CC) $(CFLAGS) $(IFLAGS) $(LFLAGS) -c $(SRC:%.c=$(SRC_DIR)/%.c)
+	@$(CC) $(CFLAGS) -c $(SRC:%.c=$(SRC_DIR)/%.c)
 	@ar -rcs $(NAME) $(OUT)
 
+draft: LIB_DIRS += .
+draft: LIBS += ft
+draft: INCLUDE_DIRS += .
+draft: CFLAGS += -g
+draft: $(NAME) $(DRAFT).c
+	@$(CC) $(CFLAGS) $(IFLAGS) $(LFLAGS) -o $(DRAFT) $(DRAFT).c
+
 clean:
-	@$(RM) $(OUT)
+	@$(RM) $(OUT) $(DRAFT)
 
 fclean: clean
 	@$(RM) $(NAME)
