@@ -6,7 +6,7 @@
 #    By: alamit <alamit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2018/11/19 18:05:59 by alamit           ###   ########.fr        #
+#    Updated: 2018/11/21 14:38:11 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,21 +37,11 @@ SRC += ft_memalloc.c ft_memdel.c ft_strnew.c ft_strdel.c ft_strclr.c \
 
 SRC_DIR = .
 INCLUDE_DIRS = .
-#LIB_DIRS = #YOUR_LIB_DIRS#
-#LIBS = #YOUR_LIBS#
 
 IFLAGS = $(INCLUDE_DIRS:%=-I%)
 LFLAGS = $(LIB_DIRS:%=-L%) $(LIBS:%=-l%)
 
 OUT := $(SRC:%.c=%.o)
-
-# TEST CONFIG #
-
-TEST_NAME = run_tests
-TEST_DIR = test
-TEST_MAIN = $(TEST_DIR)/$(TEST_NAME).c
-TEST_LIBS = test42f
-TEST_SRC = $(SRC:%=test_%)
 
 all: $(NAME)
 
@@ -59,33 +49,8 @@ $(NAME): $(SRC:%.c=$(SRC_DIR)/%.c)
 	@$(CC) $(CFLAGS) $(IFLAGS) $(LFLAGS) -c $(SRC:%.c=$(SRC_DIR)/%.c)
 	@ar -rcs $(NAME) $(OUT)
 
-test: INCLUDE_DIRS += $(TEST_LIBS:%=$(TEST_DIR)/lib/%/include) $(TEST_DIR)
-test: LIB_DIRS += $(TEST_LIBS:%=$(TEST_DIR)/lib/%)
-test: LIBS += $(TEST_LIBS)
-test: MAKE_LIBS := $(LIB_DIRS:%=$(MAKE) -C %)
-test: CLEAN_LIBS := $(LIB_DIRS:%=$(MAKE) -C % fclean)
-test: clean
-	@echo Building test42f lib...
-	@$(MAKE_LIBS)
-	@echo Done.
-	@echo Building $(NAME) with tests...
-	@$(CC) -g $(CFLAGS) $(IFLAGS) $(LFLAGS) -o $(TEST_NAME) $(TEST_MAIN) \
-		$(SRC:%.c=$(SRC_DIR)/%.c) $(TEST_SRC:%.c=$(TEST_DIR)/%.c)
-	@echo Done.
-	@echo Running tests...
-	@./$(TEST_NAME)
-	@echo Done.
-	@echo Cleaning up...
-	@$(CLEAN_LIBS)
-	@echo Done.
-
-create:
-	@touch $(SRC:%.c=$(SRC_DIR)/%.c)
-	@touch $(TEST_SRC:%.c=$(TEST_DIR)/%.c)
-
 clean:
 	@$(RM) $(OUT)
-	@$(RM) $(TEST_NAME)
 
 fclean: clean
 	@$(RM) $(NAME)
