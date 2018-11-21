@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   run_tests.c                                        :+:      :+:    :+:   */
+/*   test_ft_lstdelone.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/10 17:47:14 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/19 17:20:02 by alamit           ###   ########.fr       */
+/*   Created: 2018/11/19 16:52:06 by alamit            #+#    #+#             */
+/*   Updated: 2018/11/19 17:04:26 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <test.h>
+#include <libft.h>
+#include <test42f.h>
 
-int		main(void)
+void	del(void *content, size_t size)
 {
-	test_ft_memset();
-	test_ft_bzero();
-	test_ft_memcpy();
-	test_ft_memccpy();
-	test_ft_memcmp();
-	test_ft_strlcat();
-	test_ft_strstr();
-	test_ft_atoi();
-	test_ft_strtrim();
-	test_ft_strsplit();
-	test_ft_itoa();
-	test_ft_lstdelone();
-	return (0);
+	(void)size;
+	ft_memdel(&content);
+}
+
+void	test_ft_lstdelone(void)
+{
+	printf("%sTesting ft_lstdelone.%s\n", KCYN, KNRM);
+	t_list	*list = NULL;
+	ft_lstdelone(&list, del);
 }
