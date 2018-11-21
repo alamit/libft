@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 15:47:40 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/19 16:02:15 by alamit           ###   ########.fr       */
+/*   Updated: 2018/11/19 17:20:14 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@ void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
 	t_list	*tmp;
 
-	while (*alst)
+	if (alst)
 	{
-		tmp = (*alst)->next;
-		ft_lstdelone(alst, del);
-		*alst = tmp;
+		while (*alst)
+		{
+			tmp = (*alst)->next;
+			ft_lstdelone(alst, del);
+			*alst = tmp;
+		}
 	}
 }

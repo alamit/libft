@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/19 14:56:05 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/19 16:17:00 by alamit           ###   ########.fr       */
+/*   Created: 2018/11/19 17:49:13 by alamit            #+#    #+#             */
+/*   Updated: 2018/11/21 14:22:56 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-t_list	*ft_lstnew(const void *content, size_t content_size)
+static void	del(void *content, size_t size)
+{
+	(void)size;
+	(void)content;
+}
+
+t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *))
 {
 	t_list	*res;
+	t_list	*new;
 
-	res = (t_list *)malloc(sizeof(t_list));
+	new = f(ft_lstnew(lst->content, lst->content_size));
+	res = new;
 	if (res == NULL)
 		return (NULL);
-	if (content)
+	while ((lst = lst->next))
 	{
-		res->content = ft_memdup(content, content_size);
-		if (res->content == NULL)
+		new->next = f(ft_lstnew(lst->content, lst->content_size));
+		new = new->next;
+		if (new == NULL)
 		{
-			ft_memdel((void **)&res);
+			ft_lstdel(&res, &del);
 			return (NULL);
 		}
-		res->content_size = content_size;
 	}
-	else
-	{
-		res->content = NULL;
-		res->content_size = 0;
-	}
-	res->next = NULL;
 	return (res);
 }
