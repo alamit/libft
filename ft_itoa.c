@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 20:04:27 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/14 22:01:43 by alamit           ###   ########.fr       */
+/*   Updated: 2018/11/23 09:36:05 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static size_t	numlen(int n)
 	return (res);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char	*res;
 	size_t	len;
