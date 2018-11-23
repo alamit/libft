@@ -6,36 +6,33 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 17:49:13 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/21 14:22:56 by alamit           ###   ########.fr       */
+/*   Updated: 2018/11/23 09:24:18 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static void	del(void *content, size_t size)
-{
-	(void)size;
-	(void)content;
-}
 
 t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *))
 {
 	t_list	*res;
 	t_list	*new;
 
-	new = f(ft_lstnew(lst->content, lst->content_size));
-	res = new;
-	if (res == NULL)
+	if (lst == NULL || f == NULL)
 		return (NULL);
+	new = ft_lstnew(lst->content, lst->content_size);
+	if (new == NULL)
+		return (NULL);
+	new = f(new);
+	res = new;
 	while ((lst = lst->next))
 	{
-		new->next = f(ft_lstnew(lst->content, lst->content_size));
-		new = new->next;
-		if (new == NULL)
+		new->next = ft_lstnew(lst->content, lst->content_size);
+		if (new->next == NULL)
 		{
-			ft_lstdel(&res, &del);
+			ft_lstdel(&res, NULL);
 			return (NULL);
 		}
+		new = f(new->next);
 	}
 	return (res);
 }
