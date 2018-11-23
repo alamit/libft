@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 16:07:34 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/23 10:47:42 by alamit           ###   ########.fr       */
+/*   Updated: 2018/11/23 14:49:15 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,8 @@ void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *));
 size_t			ft_lstlen(t_list *lst);
+t_list			*ft_lstfoldleft(t_list *lst,
+								t_list *zero,
+								t_list *(*op)(t_list *, t_list *));
 
 #endif
