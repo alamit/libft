@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 17:49:13 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/23 09:24:18 by alamit           ###   ########.fr       */
+/*   Updated: 2018/11/23 10:25:15 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *))
 			ft_lstdel(&res, NULL);
 			return (NULL);
 		}
-		new = f(new->next);
+		new->next = f(new->next);
+		new = new->next;
 	}
 	return (res);
 }
