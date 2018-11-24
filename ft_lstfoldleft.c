@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 13:10:29 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/23 14:48:19 by alamit           ###   ########.fr       */
+/*   Updated: 2018/11/23 18:18:43 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@ t_list	*ft_lstfoldleft(t_list *lst,
 						t_list *zero,
 						t_list *(*op)(t_list *, t_list *))
 {
-	if (lst == NULL)
+	if (op == NULL || zero == NULL)
 		return (zero);
-	else if (zero == NULL || op == NULL)
-		return (NULL);
-	return (ft_lstfoldleft(lst->next, op(zero, lst), op));
+	while (lst)
+	{
+		zero = op(zero, lst);
+		lst = lst->next;
+	}
+	return (zero);
 }
