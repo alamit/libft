@@ -18,7 +18,7 @@ char	*ft_itoa_buf(char *buf, size_t size, int n)
 
 	if (buf == NULL)
 		return (NULL);
-	buf[--size] ='\0';
+	buf[--size] = '\0';
 	sign = (n < 0) ? -1 : 1;
 	while (n || !buf[size])
 	{
