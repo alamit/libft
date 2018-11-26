@@ -35,7 +35,7 @@ SRC += ft_memalloc.c ft_memdel.c ft_strnew.c ft_strdel.c ft_strclr.c \
 		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 		ft_itoa_buf.c ft_memdup.c ft_lstadd.c ft_lstdel.c ft_lstdelone.c \
 		ft_lstiter.c ft_lstnew.c ft_lstmap.c ft_lstlen.c ft_lstfoldleft.c \
-		ft_isqrt.c ft_isprime.c ft_pow.c
+		ft_isqrt.c ft_isprime.c ft_ipow.c
 
 SRC_DIR = .
 INCLUDE_DIRS = .
