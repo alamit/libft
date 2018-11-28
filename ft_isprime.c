@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 17:19:52 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/23 18:07:11 by alamit           ###   ########.fr       */
+/*   Updated: 2018/11/27 20:02:28 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_isprime(unsigned int n)
 
 	if (n < 2)
 		return (0);
-	else if (n == 2)
+	else if (n % 2 == 0)
 		return (1);
 	i = 3;
 	max_div = ft_isqrt(n) + 1;
