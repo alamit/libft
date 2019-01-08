@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 00:50:17 by alamit            #+#    #+#             */
-/*   Updated: 2019/01/08 12:40:17 by alamit           ###   ########.fr       */
+/*   Updated: 2019/01/08 17:47:30 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,7 @@ static const char	*dup_next_word(t_list **dst, const char *s, char c)
 	if (*dst == NULL)
 		return (NULL);
 	((char *)(*dst)->content)[wlen] = '\0';
-	s += wlen;
-	while (*s && *s == c)
-		s++;
+	s += wlen + 1;
 	return (s);
 }
 
@@ -57,13 +55,11 @@ t_list				*ft_lststrsplit(const char *s, char c)
 
 	if (s == NULL)
 		return (NULL);
-	while (*s == c)
-		++s;
 	s = dup_next_word(&res, s, c);
 	current = res;
 	while (*s)
 	{
-		s = dup_next_word(current->next, s, c);
+		s = dup_next_word(&current->next, s, c);
 		current = current->next;
 		if (s == NULL)
 		{
