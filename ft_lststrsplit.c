@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 00:50:17 by alamit            #+#    #+#             */
-/*   Updated: 2019/01/08 17:47:30 by alamit           ###   ########.fr       */
+/*   Updated: 2019/01/09 00:43:09 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ static const char	*dup_next_word(t_list **dst, const char *s, char c)
 	if (*dst == NULL)
 		return (NULL);
 	((char *)(*dst)->content)[wlen] = '\0';
-	s += wlen + 1;
+	s += wlen;
+	if (*s == c)
+		return (dup_next_word(&(*dst)->next, ++s, c));
 	return (s);
 }
 
