@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 16:07:34 by alamit            #+#    #+#             */
-/*   Updated: 2019/01/08 12:41:50 by alamit           ###   ########.fr       */
+/*   Updated: 2019/01/24 15:37:36 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(const char *s, int fd);
 void			ft_putendl_fd(const char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+int				get_next_line(const int fd, char **line);
 
 /*
 **				Linked lists functions
