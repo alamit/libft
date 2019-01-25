@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 16:07:34 by alamit            #+#    #+#             */
-/*   Updated: 2019/01/24 15:37:36 by alamit           ###   ########.fr       */
+/*   Updated: 2019/01/25 15:55:15 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,5 +132,6 @@ t_list			*ft_lstfoldleft(t_list *lst,
 unsigned int	ft_isqrt(unsigned int n);
 int				ft_ipow(int n, unsigned int exp);
 int				ft_isprime(unsigned int n);
+unsigned int	ft_abs(int n);
 
 #endif
