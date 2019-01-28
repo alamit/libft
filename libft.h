@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 16:07:34 by alamit            #+#    #+#             */
-/*   Updated: 2019/01/28 05:03:25 by alamit           ###   ########.fr       */
+/*   Updated: 2019/01/28 05:12:14 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ t_list			*ft_lststrsplit(const char *s, char c);
 t_list			*ft_lstfoldleft(t_list *lst,
 								t_list *zero,
 								t_list *(*op)(t_list *, t_list *));
-void			*ft_lst_to_array(t_list *lst);
+void			**ft_lst_to_array(t_list *lst);
 
 /*
 **				Math functions
