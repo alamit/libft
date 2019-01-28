@@ -6,7 +6,7 @@
 #    By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2019/01/25 15:55:28 by alamit           ###   ########.fr        #
+#    Updated: 2019/01/28 02:27:05 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ SRC += ft_memalloc.c ft_memdel.c ft_strnew.c ft_strdel.c ft_strclr.c \
 		ft_itoa_buf.c ft_memdup.c ft_lstadd.c ft_lstdel.c ft_lstdelone.c \
 		ft_lstiter.c ft_lstnew.c ft_lstmap.c ft_lstlen.c ft_lstfoldleft.c \
 		ft_isqrt.c ft_isprime.c ft_ipow.c ft_lststrsplit.c get_next_line.c \
-		ft_abs.c
+		ft_abs.c ft_lowersqrt.c
 
 SRC_DIR = .
 INCLUDE_DIRS = .
