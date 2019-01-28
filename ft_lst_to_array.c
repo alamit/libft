@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 05:03:37 by alamit            #+#    #+#             */
-/*   Updated: 2019/01/28 05:10:11 by alamit           ###   ########.fr       */
+/*   Updated: 2019/01/28 05:15:09 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	**ft_lst_to_array(t_list *lst)
 
 	i = 0;
 	len = ft_lstlen(lst);
-	if (!(res = malloc(len * sizeof(void *) + 1)))
+	if (lst == NULL || !(res = malloc(len * sizeof(void *) + 1)))
 		return (NULL);
 	while (i < len)
 	{
