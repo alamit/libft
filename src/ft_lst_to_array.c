@@ -6,11 +6,11 @@
 /*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 05:03:37 by alamit            #+#    #+#             */
-/*   Updated: 2019/01/28 05:15:09 by alamit           ###   ########.fr       */
+/*   Updated: 2019/02/18 19:38:03 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 #include <stdlib.h>
 
 void	**ft_lst_to_array(t_list *lst)

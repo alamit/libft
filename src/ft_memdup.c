@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 15:02:49 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/19 15:10:53 by alamit           ###   ########.fr       */
+/*   Updated: 2019/02/18 19:39:44 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include <libft.h>
 
 void	*ft_memdup(const void *src, size_t size)
 {

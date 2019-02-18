@@ -6,13 +6,13 @@
 /*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 13:21:50 by alamit            #+#    #+#             */
-/*   Updated: 2019/01/24 15:37:49 by alamit           ###   ########.fr       */
+/*   Updated: 2019/02/18 19:42:57 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "libft.h"
-#include "get_next_line.h"
+#include <libft.h>
+#include <get_next_line.h>
 #include <stdlib.h>
 
 /*

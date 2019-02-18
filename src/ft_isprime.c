@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprime.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 17:19:52 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/27 20:02:28 by alamit           ###   ########.fr       */
+/*   Updated: 2019/02/18 19:38:51 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 int		ft_isprime(unsigned int n)
 {

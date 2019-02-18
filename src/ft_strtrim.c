@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 23:25:19 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/14 00:10:27 by alamit           ###   ########.fr       */
+/*   Updated: 2019/02/18 19:42:40 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include "libft.h"
+#include <libft.h>
 
 static int	weird_isspace(char c)
 {

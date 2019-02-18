@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 21:57:10 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/13 22:16:30 by alamit           ###   ########.fr       */
+/*   Updated: 2019/02/18 19:41:26 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include <libft.h>
 
 char	*ft_strjoin(const char *s1, const char *s2)
 {

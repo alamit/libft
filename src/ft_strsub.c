@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 21:33:22 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/21 16:11:36 by alamit           ###   ########.fr       */
+/*   Updated: 2019/02/18 19:42:34 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 #include <string.h>
 #include <stdlib.h>
 

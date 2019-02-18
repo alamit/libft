@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 00:50:17 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/19 13:20:32 by alamit           ###   ########.fr       */
+/*   Updated: 2019/02/18 19:42:26 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include "libft.h"
+#include <libft.h>
 #include <stdlib.h>
 
 static size_t		count_words(const char *s, char c)

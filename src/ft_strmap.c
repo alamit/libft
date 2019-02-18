@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 20:44:36 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/13 21:18:11 by alamit           ###   ########.fr       */
+/*   Updated: 2019/02/18 19:41:42 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include <libft.h>
 
 char	*ft_strmap(const char *s, char (*f)(char))
 {

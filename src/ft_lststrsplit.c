@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lststrsplit.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 00:50:17 by alamit            #+#    #+#             */
-/*   Updated: 2019/01/22 17:55:47 by alamit           ###   ########.fr       */
+/*   Updated: 2019/02/18 19:39:26 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include "libft.h"
+#include <libft.h>
 #include <stdlib.h>
 
 static void			del(void *content, size_t content_size)

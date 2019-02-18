@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstfoldleft.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 13:10:29 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/23 18:18:43 by alamit           ###   ########.fr       */
+/*   Updated: 2019/02/18 19:37:36 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 t_list	*ft_lstfoldleft(t_list *lst,
 						t_list *zero,

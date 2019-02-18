@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 13:03:10 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/13 13:14:24 by alamit           ###   ########.fr       */
+/*   Updated: 2019/02/18 19:42:04 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include "libft.h"
+#include <libft.h>
 
 char	*ft_strncpy(char *dst, const char *src, size_t n)
 {

@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 20:04:27 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/23 09:36:05 by alamit           ###   ########.fr       */
+/*   Updated: 2019/02/18 19:39:03 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include <libft.h>
 
 static size_t	numlen(int n)
 {
