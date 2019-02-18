@@ -6,7 +6,7 @@
 #    By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2019/01/28 05:11:58 by alamit           ###   ########.fr        #
+#    Updated: 2019/02/18 19:32:19 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,8 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
-# TARGET CONFIG #
-
 NAME = libft.a
-DRAFT = draft
+
 # libc functions
 SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 		ft_memchr.c ft_memcmp.c ft_strlen.c ft_strdup.c ft_strcpy.c \
@@ -38,29 +36,34 @@ SRC += ft_memalloc.c ft_memdel.c ft_strnew.c ft_strdel.c ft_strclr.c \
 		ft_isqrt.c ft_isprime.c ft_ipow.c ft_lststrsplit.c get_next_line.c \
 		ft_abs.c ft_lowersqrt.c ft_lst_to_array.c
 
-SRC_DIR = .
-INCLUDE_DIRS = .
+INCLUDE = libft.h get_next_line.h
+
+SRC_DIR = src
+INCLUDE_DIR = include
+INCLUDE_DIRS = $(INCLUDE_DIR)
 
 IFLAGS = $(INCLUDE_DIRS:%=-I%)
-LFLAGS = $(LIB_DIRS:%=-L%) $(LIBS:%=-l%)
-
-OUT := $(SRC:%.c=%.o)
+OBJ_DIR = obj
+OBJS := $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
-$(NAME): $(SRC:%.c=$(SRC_DIR)/%.c)
-	@$(CC) $(CFLAGS) -c $(SRC:%.c=$(SRC_DIR)/%.c)
-	@ar -rcs $(NAME) $(OUT)
+$(NAME): $(OBJS) $(INCLUDE:%.h=$(INCLUDE_DIR)/%.h)
+	@mkdir -p $(OBJ_DIR)
+	@ar -rcs $(NAME) $(OBJS)
 
-draft: LIB_DIRS += .
-draft: LIBS += ft
-draft: INCLUDE_DIRS += .
-draft: CFLAGS += -g
-draft: $(NAME) $(DRAFT).c
-	@$(CC) $(CFLAGS) $(IFLAGS) $(LFLAGS) -o $(DRAFT) $(DRAFT).c
+debug: CFLAGS += -g
+debug: $(NAME)
+	@echo $(CFLAGS)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+
+.PHONY: clean
 
 clean:
-	@$(RM) $(OUT) $(DRAFT)
+	@$(RM) $(OBJ_DIR)
 
 fclean: clean
 	@$(RM) $(NAME)
