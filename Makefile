@@ -6,7 +6,7 @@
 #    By: alamit <alamit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2019/03/21 06:42:08 by alamit           ###   ########.fr        #
+#    Updated: 2019/03/21 10:02:54 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRC_DIR		=	src
 INC_DIR		=	include
 OBJ_DIR		=	obj
 
-SRC			= 	$(FT_CONV) \
+SRC			= 	$(FT_BIGINT) \
+				$(FT_CONV) \
 				$(FT_CTYPE) \
 				$(FT_LIST) \
 				$(FT_MATH) \
@@ -39,12 +40,24 @@ SRC			= 	$(FT_CONV) \
 
 OBJ			=	$(SRC:%.c=$(OBJ_DIR)/%.o)
 
-INCLUDE		=	ft_conv.h \
+INCLUDE		=	ft_bigint.h \
+				ft_conv.h \
 				ft_ctype.h \
 				ft_list.h \
 				ft_math.h \
 				ft_stdio.h \
 				ft_string.h
+
+FT_BIGINT	=	ft_bigint_add.c \
+				ft_bigint_cmp.c \
+				ft_bigint_div.c \
+				ft_bigint_divpow10.c \
+				ft_bigint_lshift.c \
+				ft_bigint_new.c \
+				ft_bigint_mulpow10.c \
+				ft_bigint_rshift.c \
+				ft_bigint_sub.c
+FT_BIGINT	:=	$(FT_BIGINT:%.c=ft_bigint/%.c)
 
 FT_CONV		=	ft_atoi.c \
 				ft_itoa_buf.c \
