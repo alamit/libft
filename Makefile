@@ -6,13 +6,16 @@
 #    By: alamit <alamit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2019/03/21 03:41:49 by alamit           ###   ########.fr        #
+#    Updated: 2019/03/21 06:42:08 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # GLOBAL CONFIG -------------------------------------------------------------- #
 
 NAME = libft.a
+
+DEBUG_EXEC = draft
+DEBUG_MAIN = $(DEBUG_EXEC).c
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -138,6 +141,7 @@ $(NAME): $(OBJ)
 
 debug: CFLAGS += -g
 debug: $(NAME)
+	$(CC) $(CFLAGS) $(IFLAGS) -o $(DEBUG_EXEC) $(DEBUG_MAIN) $(NAME)
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
