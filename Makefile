@@ -6,7 +6,7 @@
 #    By: alamit <alamit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2019/03/21 10:02:54 by alamit           ###   ########.fr        #
+#    Updated: 2019/03/21 14:49:44 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -166,6 +166,7 @@ $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 
 clean:
 	@$(RM) $(OBJ_DIR)
+	@$(RM) $(DEBUG_EXEC)
 
 fclean: clean
 	@$(RM) $(NAME)
