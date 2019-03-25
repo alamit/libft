@@ -6,7 +6,7 @@
 #    By: alamit <alamit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2019/03/21 14:49:44 by alamit           ###   ########.fr        #
+#    Updated: 2019/03/25 15:01:18 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,8 @@ FT_BIGINT	:=	$(FT_BIGINT:%.c=ft_bigint/%.c)
 
 FT_CONV		=	ft_atoi.c \
 				ft_itoa_buf.c \
-				ft_itoa.c
+				ft_itoa.c \
+				ft_ld2buf.c
 FT_CONV		:=	$(FT_CONV:%.c=ft_conv/%.c)
 
 FT_CTYPE	=	ft_char2num.c \
