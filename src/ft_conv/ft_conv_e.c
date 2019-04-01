@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conv_e.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 15:43:33 by alamit            #+#    #+#             */
-/*   Updated: 2019/03/28 21:44:43 by alamit           ###   ########.fr       */
+/*   Updated: 2019/04/01 14:01:38 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,6 @@
 #include <ft_float.h>
 #include <ft_string.h>
 #include <ft_math.h>
-
-static int		length_mod(t_format *f, t_float80 *n)
-{
-	if ((f->length_mod[0] == 'l' || !f->length_mod[0]) && !f->length_mod[1])
-		*n = (t_float64)*n;
-	else if (f->length_mod[0] != 'L' || f->length_mod[1])
-		return (0);
-	return (1);
-}
 
 static size_t	conv_len(t_format *f, t_f80_b10 *b10)
 {
@@ -65,7 +56,7 @@ int				ft_conv_e(t_buff *buff, const char *format, t_float80 n)
 	size_t		num_digits;
 	t_format	f;
 
-	if (!ft_format_parse(&f, format) || !length_mod(&f, &n))
+	if (!ft_format_parse(&f, format))
 		return (0);
 	f.precision = f.precision < 0 ? 6 : f.precision;
 	ft_float80_b10(&b10, n);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bigint_mulpow10.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 15:03:14 by alamit            #+#    #+#             */
-/*   Updated: 2019/03/21 10:03:12 by alamit           ###   ########.fr       */
+/*   Updated: 2019/04/01 12:51:06 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,5 @@ void		ft_bigint_mulpow10(t_bigint *bi, size_t n)
 	}
 	while (i && i--)
 		mul5(bi);
-
 	ft_bigint_lshift(bi, n);
 }

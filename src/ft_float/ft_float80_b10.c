@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_float80_b10.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 11:32:51 by alamit            #+#    #+#             */
-/*   Updated: 2019/03/28 20:38:15 by alamit           ###   ########.fr       */
+/*   Updated: 2019/04/01 12:50:23 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 **	- If expb2 < 0: Underestimate the log10.
 **	The error is always 1 or 0.
 */
+
 static int32_t	log10_err(t_f80_data *n_data)
 {
 	int32_t		hbit;
