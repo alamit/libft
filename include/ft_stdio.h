@@ -6,14 +6,12 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 20:24:03 by alamit            #+#    #+#             */
-/*   Updated: 2019/03/20 20:30:52 by alamit           ###   ########.fr       */
+/*   Updated: 2019/03/27 23:08:26 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_STDIO_H
 # define FT_STDIO_H
-
-# define BUFF_SIZE 10000
 
 /*
 **		Important notes:
