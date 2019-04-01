@@ -6,7 +6,7 @@
 #    By: alamit <alamit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2019/03/28 20:06:28 by alamit           ###   ########.fr        #
+#    Updated: 2019/04/01 18:41:07 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,6 +78,7 @@ FT_BUFF			:=	$(FT_BUFF:%.c=ft_buff/%.c)
 FT_CONV			=	ft_atoi.c \
 					ft_conv_d.c \
 					ft_conv_e.c \
+					ft_conv_f.c \
 					ft_itoa_buf.c \
 					ft_itoa.c
 FT_CONV			:=	$(FT_CONV:%.c=ft_conv/%.c)
