@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_float80_b10.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 11:32:51 by alamit            #+#    #+#             */
-/*   Updated: 2019/04/01 12:50:23 by alamit           ###   ########.fr       */
+/*   Updated: 2019/04/01 18:56:20 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int32_t	log10_err(t_f80_data *n_data)
 		++hbit;
 		mantissa <<= 1;
 	}
-	res = (int32_t)((long double)(hbit + n_data->expb2) * LOG10_2 - 0.69L);
+	res = (int32_t)((long double)(n_data->expb2 - hbit) * LOG10_2 - 0.69L);
 	return (res >= 0 ? res + 1 : res);
 }
 
