@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 20:34:48 by alamit            #+#    #+#             */
-/*   Updated: 2019/03/27 22:46:17 by alamit           ###   ########.fr       */
+/*   Updated: 2019/04/01 21:37:01 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int				ft_atoi(const char *str);
 **	Conversions from types to buffer.
 */
 int				ft_conv_e(t_buff *buff, const char *format, t_float80 n);
+int				ft_conv_f(t_buff *buff, const char *format, t_float80 n);
 int				ft_conv_d(t_buff *buff, const char *format, int64_t n);
 int				ft_fconv(t_buff *buff, t_format *format, t_float80 n);
 char			*ft_itoa_buf(char *buf, size_t size, int n);
