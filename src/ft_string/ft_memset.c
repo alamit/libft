@@ -3,21 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 16:10:24 by alamit            #+#    #+#             */
-/*   Updated: 2019/03/20 22:07:47 by alamit           ###   ########.fr       */
+/*   Updated: 2019/04/04 07:38:11 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_string.h>
+#include <sys/types.h>
+#include <inttypes.h>
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	size_t	i;
+	uint64_t	n;
+	void		*res;
 
-	i = 0;
-	while (i < len)
-		((unsigned char *)b)[i++] = (unsigned char)c;
-	return (b);
+	res = b;
+	n = (unsigned char)c;
+	n = (n << 56) | (n << 48) | (n << 40) | (n << 32) | (n << 24) | (n << 16)
+		| (n << 8) | n;
+	while (len / sizeof(uint64_t))
+	{
+		*(uint64_t *)b = n;
+		b += sizeof(uint64_t);
+		len -= sizeof(uint64_t);
+	}
+	while (len)
+	{
+		*(unsigned char *)b = (unsigned char)c;
+		len--;
+		b++;
+	}
+	return (res);
 }
