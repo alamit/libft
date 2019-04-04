@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   draft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 06:42:46 by alamit            #+#    #+#             */
-/*   Updated: 2019/04/01 20:50:35 by alamit           ###   ########.fr       */
+/*   Updated: 2019/04/04 07:58:01 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_conv.h>
-#include <ft_buff.h>
 #include <stdio.h>
 #include <locale.h>
+#include <unistd.h>
 
 typedef union	s_ldext
 {
@@ -28,11 +28,13 @@ typedef union	s_ldext
 
 int		main(void)
 {
-	long double		n = -4534534354354.4534354354354;
+	long double		n = -1.0;
 	long double		m = 49999999999999999989.0L;
+	long double		o = 99999.999999999999L;
 	(void)m;
+	(void)n;
 	t_ldext			ext;
-	ext.n = n;
+	ext.n = o;
 	setlocale(LC_ALL, "");
 	struct lconv *ptrLocale = localeconv();
 	ptrLocale->thousands_sep = "'";
@@ -43,16 +45,14 @@ int		main(void)
 	// char	buf[15000];
 	// int		expb10 = ft_ld2buf(buf, ext.n, 10, 0);
 	// printf("%se%+d\n\n", buf, expb10);
-	printf("%+20.100Lf\n", ext.n);
+	printf("%+50.10Le\n", ext.n);
 	fflush(stdout);
-	t_buff	buff;
-	ft_buff_init(&buff, 1, NULL);
-	// ft_conv_e(&buff, "%+20.5000Le", ext.n);
+	char buf[20000];
+	size_t x = ft_conv_e(buf, "%+50.10Le", ext.n);
+	write(1, buf, x);
+	// int x = ft_conv_f(&buff, "%+0200.10Lf", ext.n);
 	// ft_debuff(&buff);
 	// puts("");
-	int x = ft_conv_f(&buff, "%+0200.10Lf", ext.n);
-	ft_debuff(&buff);
-	puts("");
-	printf("%d\n", x);
+	// printf("%d\n", x);
 	return (0);
 }
