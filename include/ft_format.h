@@ -2,6 +2,7 @@
 # define FT_FORMAT_H
 
 # include <sys/types.h>
+# include <inttypes.h>
 
 # define ALPHA_OCT "01234567"
 # define ALPHA_DEC "0123456789"
@@ -25,11 +26,17 @@
 
 typedef struct	s_format
 {
-	char	flag[7];
-	size_t	field_width;
-	int		precision;
-	char	length_mod[2];
-	char	type;
+	uint8_t		has_prefix : 1;
+	uint8_t		is_upper : 1;
+	uint8_t		has_sep : 1;
+	uint8_t		has_dec_point : 1;
+	uint8_t		length_mod : 4;
+	uint32_t	left_field_width;
+	uint32_t	right_field_width;
+	uint32_t	zero_field_width;
+	uint32_t	zero_precision;
+	char		pos_sign;
+	uint8_t		type;
 }				t_format;
 
 int				ft_format_parse(t_format *f, const char *format);
