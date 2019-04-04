@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conv_d.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 21:55:20 by alamit            #+#    #+#             */
-/*   Updated: 2019/03/28 20:19:13 by alamit           ###   ########.fr       */
+/*   Updated: 2019/04/04 07:23:57 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,30 @@
 #include <inttypes.h>
 #include <ft_string.h>
 
-int		ft_conv_d(t_buff *buff, const char *format, int64_t n)
+int		ft_conv_d(char *buf, const char *format, int64_t n)
 {
 	t_format	f;
-	char 		buf[256];
 	uint64_t	un;
-	size_t		i;
+	ssize_t		len;
+	char		*start;
 
+	start = buf;
 	ft_format_parse(&f, format);
-	i = 256;
+	if (n < 0)
+		*(buf++) = '-';
+	else if (ft_strchr(f.flag, '+'))
+		*(buf++) = '+';
+	else if(ft_strchr(f.flag, ' '))
+		*(buf++) = ' ';
 	un = ft_abs(n);
+	len = ft_log10(un);
+	while (f.precision-- > len)
+		*(buf++) = '0';
 	while (un)
 	{
-		buf[--i] = un % 10 + '0';
+		buf[--len] = un % 10 + '0';
 		un /= 10;
-		f.precision = f.precision ? f.precision - 1 : f.precision;
+		start--;
 	}
-	if (n < 0)
-		ft_buffc(buff, '-', 1);
-	else if (ft_strchr(f.flag, '+'))
-		ft_buffc(buff, '+', 1);
-	else if(ft_strchr(f.flag, ' '))
-		ft_buffc(buff, ' ', 1);
-	ft_buffc(buff, '0', f.precision);
-	ft_buff(buff, buf + i, 256 - i);
-	return (1);
+	return (buf - start);
 }

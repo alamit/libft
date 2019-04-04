@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conv.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 20:34:48 by alamit            #+#    #+#             */
-/*   Updated: 2019/04/01 21:37:01 by alamit           ###   ########.fr       */
+/*   Updated: 2019/04/04 07:55:55 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <sys/types.h>
 # include <ft_floattypes.h>
 # include <ft_format.h>
-# include <ft_buff.h>
 
 /*
 **	Convertsions from string to type.
@@ -26,10 +25,10 @@ int				ft_atoi(const char *str);
 /*
 **	Conversions from types to buffer.
 */
-int				ft_conv_e(t_buff *buff, const char *format, t_float80 n);
-int				ft_conv_f(t_buff *buff, const char *format, t_float80 n);
-int				ft_conv_d(t_buff *buff, const char *format, int64_t n);
-int				ft_fconv(t_buff *buff, t_format *format, t_float80 n);
+size_t			ft_conv_e(char *buf, const char *format, t_float80 n);
+int				ft_conv_f(char *buf, const char *format, t_float80 n);
+int				ft_conv_d(char *buf, const char *format, int64_t n);
+int				ft_fconv(char *buf, t_format *format, t_float80 n);
 char			*ft_itoa_buf(char *buf, size_t size, int n);
 
 /*
