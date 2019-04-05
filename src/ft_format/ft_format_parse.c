@@ -1,74 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_f_parse.c                                  :+:      :+:    :+:   */
+/*   ft_format_parse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/22 16:39:17 by alamit            #+#    #+#             */
-/*   Updated: 2019/03/27 15:36:20 by alamit           ###   ########.fr       */
+/*   Created: 2019/04/05 14:36:53 by alamit            #+#    #+#             */
+/*   Updated: 2019/04/05 15:33:46 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_format.h>
 #include <ft_conv.h>
 #include <ft_ctype.h>
+#include <ft_string.h>
+#include <stddef.h>
+
+#define FLAGS "#0 +-'"
+#define LEN_MOD "hlLz"
+#define TYPES "diouxXDOUfFeEcCsSpb%"
 
 static int	is_flag(char c)
 {
-	return (c == '#'
-		|| c == '0'
-		|| c == ' '
-		|| c == '+'
-		|| c == '-'
-		|| c == '\'');
+	return (ft_strchr(FLAGS, c) != NULL);
 }
 
 static int	is_len_mod(char c)
 {
-	return (c == 'h'
-		|| c == 'l'
-		|| c == 'L'
-		|| c == 'z');
+	return (ft_strchr(LEN_MOD, c) != NULL);
 }
 
 static int	is_type(char c)
 {
-	return (c == 'd' || c == 'D'
-		|| c == 'i'
-		|| c == 'o' || c == 'O'
-		|| c == 'u' || c == 'U'
-		|| c == 'x' || c == 'X'
-		|| c == 'f' || c == 'F'
-		|| c == 'e' || c == 'E'
-		|| c == 'g' || c == 'G'
-		|| c == 'c' || c == 'C'
-		|| c == 's' || c == 'S'
-		|| c == 'p'
-		|| c == 'b'
-		|| c == '%');
+	return (ft_strchr(TYPES, c) != NULL);
 }
 
-int			ft_format_parse(t_format *f, const char *format)
+ssize_t		ft_format_parse(t_format *f, const char *format)
 {
-	size_t	i;
+	const char *start;
 
-	i = -1;
-	if (!*++format)
-		return (0);
-	while (++i < 6)
-		f->flag[i] = is_flag(*format) ? *(format++) : 0;
-	f->flag[6] = '\0';
+	ft_bzero(f, sizeof(t_format));
+	if (!format == '%' || !*++format)
+		return (-1);
+	while (is_flag(*format))
+		ft_format_set_flag(f, format++);
 	f->field_width = ft_atoi(format);
 	while (ft_isdigit(*format))
 		++format;
 	f->precision = *format == '.' ? ft_atoi(++format) : -1;
 	while (ft_isdigit(*format))
 		++format;
-	f->length_mod[0] = is_len_mod(*format) ? *(format++) : 0;
-	f->length_mod[1] = is_len_mod(*format) ? *(format++) : 0;
-	f->type = *(format++);
-	if (!is_type(f->type))
-		return (0);
-	return (1);
+	while (is_len_mod(*format))
+		ft_format_add_length_mod(f, format++);
+	if (is_type(*format))
+		ft_format_set_type(f, format++);
+	else
+		return (-1);
+	return (format - start);
 }
