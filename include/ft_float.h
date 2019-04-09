@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_float.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:01:23 by alamit            #+#    #+#             */
-/*   Updated: 2019/04/04 06:38:33 by alamit           ###   ########.fr       */
+/*   Updated: 2019/03/28 19:51:07 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,17 @@ typedef struct		s_f80_data
 
 typedef struct 		s_f80_b10
 {
+	char		buf[F80_MAXDIGITS_B10];
 	t_bigint	p;
 	t_bigint	q;
 	int16_t		exp;
 	uint8_t		sign;
 	const char	*(*inf)(int);
 	const char	*(*nan)(int);
-	char		(*get_digit)(struct s_f80_b10 *);
-	char		*(*round)(char *, size_t, struct s_f80_b10 *);
+	size_t		(*get_digits)(struct s_f80_b10 *, size_t);
 }					t_f80_b10;
 
-t_f80_data			ft_float80_extract(t_float80 n);
-void				ft_float80_b10(t_f80_b10 *b10, t_float80 n);
+t_f80_data		ft_float80_extract(t_float80 n);
+void			ft_float80_b10(t_f80_b10 *b10, t_float80 n);
 
 #endif

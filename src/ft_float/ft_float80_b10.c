@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 11:32:51 by alamit            #+#    #+#             */
-/*   Updated: 2019/04/05 20:22:16 by alamit           ###   ########.fr       */
+/*   Updated: 2019/04/09 23:08:33 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,44 +64,34 @@ static void		init(t_f80_data *n, t_f80_b10 *b10)
 		ft_bigint_mulpow10(&b10->p, 1);
 }
 
-static char		*round(char *buf, size_t size, t_f80_b10 *b10)
+static int32_t	round(char *buf, size_t size, int32_t expb10, uint8_t next)
 {
+	size_t	i;
 	uint8_t	carry;
-	uint8_t	next;
-	char	*res;
 
-	res = buf--;
-	next = ft_bigint_div(&b10->p, &b10->q, 9);
-	carry = next > 5 || (next == 5 && *buf - '0' % 2) ? 1 : 0;
-	while (carry && --size)
+	i = size;
+	carry = next > 5 || (next == 5 && buf[i - 1] - '0' % 2) ? 1 : 0;
+	while (i-- && carry)
 	{
-		if (*buf != '.')
-		{
-			*buf += carry;
-			carry = *buf > '9';
-			*buf = carry ? *buf - 10 : *buf;
-		}
-		buf--;
+		buf[i] += carry;
+		carry = buf[i] > '9';
+		buf[i] = carry ? buf[i] - 10 : buf[i];
 	}
-	if (carry)
-	{
-		*buf = '1';
-		b10->exp++;
-	}
-	return (res);
+	return (expb10 + carry);
 }
 
-static char		get_digit(t_f80_b10 *b10)
+static size_t	get_digits(t_f80_b10 *b10, size_t n)
 {
-	char	res;
+	size_t	i;
 
-	res = '0';
-	if (b10->p.size)
+	i = 0;
+	while (i < n && b10->p.size)
 	{
-		res += ft_bigint_div(&b10->p, &b10->q, 9);
+		b10->buf[i++] = '0' + ft_bigint_div(&b10->p, &b10->q, 9);
 		ft_bigint_mulpow10(&b10->p, 1);
 	}
-	return (res);
+	b10->exp = round(b10->buf, i, b10->exp, ft_bigint_div(&b10->p, &b10->q, 9));
+	return (i);
 }
 
 void			ft_float80_b10(t_f80_b10 *b10, t_float80 n)
@@ -112,8 +102,7 @@ void			ft_float80_b10(t_f80_b10 *b10, t_float80 n)
 	b10->sign = n_data.sign;
 	b10->inf = NULL;
 	b10->nan = NULL;
-	b10->get_digit = NULL;
-	b10->round = NULL;
+	b10->get_digits = NULL;
 	if (n_data.type == INF)
 		b10->inf = &ft_float_params_inf;
 	else if (n_data.type == NAN)
@@ -122,7 +111,6 @@ void			ft_float80_b10(t_f80_b10 *b10, t_float80 n)
 	{
 		b10->exp = log10_err(&n_data);
 		init(&n_data, b10);
-		b10->get_digit = &get_digit;
-		b10->round = &round;
+		b10->get_digits = &get_digits;
 	}
 }
