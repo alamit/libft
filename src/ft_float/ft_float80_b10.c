@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_float80_b10.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 11:32:51 by alamit            #+#    #+#             */
-/*   Updated: 2019/04/04 08:13:33 by alamit           ###   ########.fr       */
+/*   Updated: 2019/04/05 20:22:16 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,17 @@ static int32_t	log10_err(t_f80_data *n_data)
 static void		init(t_f80_data *n, t_f80_b10 *b10)
 {
 	b10->p = ft_bigint_new(n->mantissa);
-	b10->q = ft_bigint_new(1);
-	if (n->expb2 >= 63)
-		ft_bigint_lshift(&b10->p, n->expb2 - 63);
+	b10->q = ft_bigint_new(1l << 63);
+	if (n->expb2 >= 0)
+	{
+		ft_bigint_lshift(&b10->p, n->expb2 - b10->exp);
+		ft_bigint_mulpow5(&b10->q, b10->exp);
+	}
 	else
-		ft_bigint_lshift(&b10->q, 63 - n->expb2);
-	if (b10->exp >= 0)
-		ft_bigint_mulpow10(&b10->q, b10->exp);
-	else
-		ft_bigint_mulpow10(&b10->p, -b10->exp);
+	{
+		ft_bigint_mulpow5(&b10->p, -b10->exp);
+		ft_bigint_lshift(&b10->q, b10->exp - n->expb2);
+	}
 	if (ft_bigint_cmp(&b10->p, &b10->q) <= 0)
 		++b10->exp;
 	else
