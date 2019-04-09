@@ -2,6 +2,7 @@
 # define FT_FORMAT_H
 
 # include <sys/types.h>
+# include <inttypes.h>
 
 # define ALPHA_OCT "01234567"
 # define ALPHA_DEC "0123456789"
@@ -21,7 +22,7 @@
 # define DEFAULT_BIN_SEPFREQ 8
 
 # define DEFAULT_DEC_SEP '\''
-# define DEFAULT_SEP ':
+# define DEFAULT_SEP ':'
 
 typedef struct	s_format
 {
@@ -38,13 +39,13 @@ void			ft_format_set_flag(t_format *f, const char *flag);
 void			ft_format_add_length_mod(t_format *f, const char *length_mod);
 void			ft_format_set_type(t_format *f, const char *type);
 
-size_t			ft_format_left_mfw(t_format *f);
+size_t			ft_format_left_padding(t_format *f);
 char			ft_format_sign(t_format *f, int is_neg);
 const char		*ft_format_prefix(t_format *f);
-size_t			ft_format_zero_mfw(t_format *f);
+size_t			ft_format_zero_padding(t_format *f);
 char			ft_format_separator(t_format *f);
 size_t			ft_format_precision(t_format *f);
-size_t			ft_format_right_mfw(t_format *f);
+size_t			ft_format_right_padding(t_format *f);
 uint8_t			ft_format_show_dec(t_format *f);
 uint8_t			ft_format_lenmod(t_format *f);
 uint8_t			ft_format_type(t_format *f);
