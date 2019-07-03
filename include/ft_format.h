@@ -37,7 +37,7 @@ typedef struct	s_format
 ssize_t			ft_format_parse(t_format *f, const char *format);
 void			ft_format_set_flag(t_format *f, char flag);
 void			ft_format_add_length_mod(t_format *f, char length_mod);
-int8_t			ft_format_set_type(t_format *f, char type);
+void			ft_format_set_type(t_format *f, char type);
 
 int8_t			ft_format_has_flag(t_format *f, char flag);
 size_t			ft_format_left_padding(t_format *f, size_t conv_len);

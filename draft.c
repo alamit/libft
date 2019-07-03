@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 06:42:46 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/02 15:55:25 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/03 18:32:02 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,18 @@ typedef union	s_ldext
 int		main(void)
 {
 	long double		n = -1.0;
-	long double		m = 49999999999999999989.0L;
+	long double		m = 9999999999999999989.0L;
 	long double		o = 99999.999999999999L;
-	(void)m;
+	(void)n;
 	(void)o;
 	t_ldext			ext;
-	ext.n = n;
+	ext.n = m;
 	setlocale(LC_ALL, "");
 	struct lconv *ptrLocale = localeconv();
 	ptrLocale->thousands_sep = "'";
 	ptrLocale->decimal_point = ".";
 	//ext.f.mantissa >>= 63;
-	ext.f.exp -= 16382;
+	ext.f.exp -= 16180;
 	// ext.f.exp = 0; // DENORMAL
 	// char	buf[15000];
 	// int		expb10 = ft_ld2buf(buf, ext.n, 10, 0);
@@ -49,8 +49,9 @@ int		main(void)
 	// fflush(stdout);
 	t_buff	buf;
 	ft_buff_init(&buf, 1, NULL);
-	ft_conv_e(&buf, "%+50.12000Le", ext.n);
+	ft_conv_f(&buf, "%+50.20000Le", ext.n);
 	ft_debuff(&buf);
+	printf("\n%+50.20000Lf\n", ext.n);
 	// int x = ft_conv_f(&buff, "%+0200.10Lf", ext.n);
 	// ft_debuff(&buff);
 	// puts("");

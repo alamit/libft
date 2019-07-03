@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 20:34:48 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/03 10:46:13 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/03 11:50:46 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int				ft_fconv_x(t_buff *buf, t_format *format, uint64_t n);
 int				ft_fconv_o(t_buff *buf, t_format *format, uint64_t n);
 int				ft_fconv_b(t_buff *buf, t_format *format, uint64_t n);
 int				ft_fconv_c(t_buff *buf, t_format *format, int c);
-int				ft_fconv_lc(t_buff *buf, t_format *format, wint_t *wc);
+int				ft_fconv_lc(t_buff *buf, t_format *format, wint_t wc);
 int				ft_fconv_s(t_buff *buf, t_format *format, char *s);
 int				ft_fconv_ls(t_buff *buf, t_format *format, wchar_t *ws);
 int				ft_fconv_u_base(t_buff *buf, t_format *format, uint64_t n,
@@ -49,7 +49,7 @@ int				ft_conv_x(t_buff *buf, const char *format, uint64_t n);
 int				ft_conv_o(t_buff *buf, const char *format, uint64_t n);
 int				ft_conv_b(t_buff *buf, const char *format, uint64_t n);
 int				ft_conv_c(t_buff *buf, const char *format, int c);
-int				ft_conv_lc(t_buff *buf, const char *format, wint_t *wc);
+int				ft_conv_lc(t_buff *buf, const char *format, wint_t wc);
 int				ft_conv_s(t_buff *buf, const char *format, char *s);
 int				ft_conv_ls(t_buff *buf, const char *format, wchar_t *ws);
 

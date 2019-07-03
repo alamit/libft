@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:01:23 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/02 15:35:56 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/03 12:03:27 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,6 @@ typedef struct 		s_f80_b10
 }					t_f80_b10;
 
 t_f80_data		ft_float80_extract(t_float80 n);
-void			ft_float80_b10(t_f80_b10 *b10, t_float80 n, size_t pre);
+void			ft_float80_b10(t_f80_b10 *b10, t_float80 n, size_t pre, uint8_t sci);
 
 #endif

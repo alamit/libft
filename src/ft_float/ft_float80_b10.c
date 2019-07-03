@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 11:32:51 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/02 15:53:36 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/03 18:20:32 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static uint8_t	round(t_f80_b10 *b10, uint8_t next)
 			? b10->fractional[i] - 10 : b10->fractional[i];
 	}
 	i = b10->dec_len;
-	while (i-- && carry)
+	while (i-- && carry && (b10->sci || b10->exp >= 0))
 	{
 		b10->decimal[i] += carry;
 		carry = b10->decimal[i] > '9';
@@ -128,30 +128,32 @@ static uint8_t	round(t_f80_b10 *b10, uint8_t next)
 static void		compute(t_f80_b10 *b10, t_bigint *p, t_bigint *q)
 {
 	uint16_t	i;
+	uint16_t	start;
 
 	i = 0;
 	if (b10->exp < 0 && !b10->sci)
-		b10->decimal[i--] = '0';
-	while ((b10->sci || i <= b10->exp) && p->size)
+		b10->decimal[i++] = '0';
+	while ((b10->sci || i < b10->exp) && p->size)
 	{
 		b10->decimal[i++] = ft_num2char(ft_bigint_div(p, q, 9));
 		ft_bigint_mulpow10(p, 1);
 		if (b10->sci)
 			break;
 	}
-	b10->decimal[i++] = '\0';
 	b10->dec_len = i;
-	while (i < b10->precision + b10->exp && i < b10->precision && p->size)
+	i = (b10->sci || b10->exp >= 0 ? 0 : -b10->exp);
+	start = i;
+	while (i < b10->precision && p->size)
 	{
-		b10->fractional[i++] = ft_num2char(ft_bigint_div(p, q, 9));
+		b10->fractional[i++ - start] = ft_num2char(ft_bigint_div(p, q, 9));
 		ft_bigint_mulpow10(p, 1);
 	}
-	b10->fractional[i++] = '\0';
-	b10->frac_len = i;
+	b10->frac_len = i - start;
 	b10->carry = round(b10, ft_bigint_div(p, q, 9));
 }
 
-void			ft_float80_b10(t_f80_b10 *b10, t_float80 n, size_t pre)
+void			ft_float80_b10(t_f80_b10 *b10, t_float80 n, size_t pre,
+	uint8_t sci)
 {
 	t_f80_data	f_data;
 	t_bigint	p;
@@ -161,6 +163,9 @@ void			ft_float80_b10(t_f80_b10 *b10, t_float80 n, size_t pre)
 	b10->sign = f_data.sign;
 	b10->exp = log10_err(&f_data);
 	b10->precision = pre;
+	b10->sci = sci;
+	p = ft_bigint_new(f_data.mantissa);
+	q = ft_bigint_new(1ll << 63);
 	if (f_data.expb2 >= 0)
 	{
 		ft_bigint_lshift(&p, f_data.expb2 - b10->exp);

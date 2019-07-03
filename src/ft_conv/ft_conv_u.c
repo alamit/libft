@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 11:20:05 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/03 11:20:20 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/03 11:51:17 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ int		ft_conv_u(t_buff *buf, const char *format, uint64_t n)
 
 	if (ft_format_parse(&f, format) >= 0)
 		return (ft_fconv_u(buf, &f, n));
-	return (-1)
+	return (-1);
 }

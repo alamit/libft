@@ -6,7 +6,7 @@
 #    By: alamit <alamit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2019/04/01 18:41:07 by alamit           ###   ########.fr        #
+#    Updated: 2019/07/03 18:30:52 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,11 +76,31 @@ FT_BUFF			=	ft_buff_init.c \
 FT_BUFF			:=	$(FT_BUFF:%.c=ft_buff/%.c)
 
 FT_CONV			=	ft_atoi.c \
+					ft_conv_b.c \
+					ft_conv_c.c \
 					ft_conv_d.c \
 					ft_conv_e.c \
 					ft_conv_f.c \
-					ft_itoa_buf.c \
-					ft_itoa.c
+					ft_conv_lc.c \
+					ft_conv_ls.c \
+					ft_conv_o.c \
+					ft_conv_s.c \
+					ft_conv_u.c \
+					ft_conv_x.c \
+					ft_fconv_b.c \
+					ft_fconv_c.c \
+					ft_fconv_d.c \
+					ft_fconv_e.c \
+					ft_fconv_f.c \
+					ft_fconv_lc.c \
+					ft_fconv_ls.c \
+					ft_fconv_o.c \
+					ft_fconv_s.c \
+					ft_fconv_u.c \
+					ft_fconv_u_base.c \
+					ft_fconv_x.c \
+					ft_itoa.c \
+					ft_itoa_buf.c
 FT_CONV			:=	$(FT_CONV:%.c=ft_conv/%.c)
 
 FT_CTYPE		=	ft_char2num.c \
@@ -92,7 +112,9 @@ FT_CTYPE		=	ft_char2num.c \
 					ft_isspace.c \
 					ft_num2char.c \
 					ft_tolower.c \
-					ft_toupper.c
+					ft_toupper.c \
+					ft_isupper.c \
+					ft_islower.c
 FT_CTYPE		:=	$(FT_CTYPE:%.c=ft_ctype/%.c)
 
 FT_FLOAT		=	ft_float80_b10.c \
@@ -104,7 +126,16 @@ FT_FLOAT_PARAMS	=	ft_float_params_inf.c \
 					ft_float_params.c
 FT_FLOAT_PARAMS	:=	$(FT_FLOAT_PARAMS:%.c=ft_float_params/%.c)
 
-FT_FORMAT		=	ft_format_parse.c
+FT_FORMAT		=	ft_format_add_length_mod.c \
+					ft_format_has_flag.c \
+					ft_format_left_padding.c \
+					ft_format_parse.c \
+					ft_format_precision.c \
+					ft_format_right_padding.c \
+					ft_format_set_flag.c \
+					ft_format_set_type.c \
+					ft_format_sign.c \
+					ft_format_zero_padding.c
 FT_FORMAT		:=	$(FT_FORMAT:%.c=ft_format/%.c)
 
 FT_LIST			=	ft_lst_to_array.c \
@@ -124,7 +155,10 @@ FT_MATH			=	ft_abs.c \
 					ft_isprime.c \
 					ft_isqrt.c \
 					ft_log10.c \
-					ft_lowersqrt.c
+					ft_lowersqrt.c \
+					ft_submin0.c \
+					ft_max.c \
+					ft_min.c
 FT_MATH			:=	$(FT_MATH:%.c=ft_math/%.c)
 
 FT_STDIO		=	ft_putchar_fd.c \

@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_zero_padding.c                           :+:      :+:    :+:   */
+/*   ft_min.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/02 16:27:24 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/03 12:49:49 by alamit           ###   ########.fr       */
+/*   Created: 2019/07/03 18:30:24 by alamit            #+#    #+#             */
+/*   Updated: 2019/07/03 18:30:31 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_format.h>
+#include <inttypes.h>
 
-size_t	ft_format_zero_padding(t_format *f, size_t conv_len)
+uint64_t	ft_min(uint64_t a, uint64_t b)
 {
-	if (f->field_width > conv_len && !ft_format_has_flag(f, '-')
-		&& ft_format_has_flag(f, '0'))
-		return (f->field_width - conv_len);
-	return (0);
+	return (a < b ? a : b);
 }
