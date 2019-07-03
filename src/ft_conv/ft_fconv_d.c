@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_fconv_d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 16:07:27 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/03 10:07:18 by alamit           ###   ########.fr       */
+/*   Created: 2019/07/03 10:55:13 by alamit            #+#    #+#             */
+/*   Updated: 2019/07/03 11:04:10 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_toupper(int c)
+#include <ft_conv.h>
+#include <ft_math.h>
+#include <inttypes.h>
+#include <ft_format.h>
+#include <ft_ctype.h>
+
+int		ft_fconv_d(t_buff *buf, t_format *f, int64_t n)
 {
-	if (ft_islower(c))
-		return (c - ('a' - 'A'));
-	return (c);
+	uint64_t	un;
+	size_t		i;
+
+	if (ft_format_sign(&f, n < 0))
+		ft_buffc(buf, ft_format_sign(&f, n < 0), 1);
+	un = ft_abs(n);
+	return (ft_fconv_u(buf, f, un));
 }

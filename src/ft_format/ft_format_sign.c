@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_format_sign.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 16:07:27 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/03 10:07:18 by alamit           ###   ########.fr       */
+/*   Created: 2019/07/02 16:25:13 by alamit            #+#    #+#             */
+/*   Updated: 2019/07/02 16:27:15 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_toupper(int c)
+#include <ft_format.h>
+
+char	ft_format_sign(t_format *f, int is_neg)
 {
-	if (ft_islower(c))
-		return (c - ('a' - 'A'));
-	return (c);
+	if (is_neg)
+		return ('-');
+	else if (ft_format_has_flag(f, '+'))
+		return ('+');
+	else if (ft_format_has_flag(f, ' '))
+		return (' ');
+	return ('\0');
 }

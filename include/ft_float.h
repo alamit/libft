@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:01:23 by alamit            #+#    #+#             */
-/*   Updated: 2019/03/28 19:51:07 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/02 15:35:56 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 
 # define INVALEXP 0xFFFF
 # define F80_MAXDIGITS_B10 11494
-
+# define F80_MAXDEC_B10 11494
+# define F80_MAXFRAC_B10 11494
 /*
 **	Union to extract fields from a long double.
 **	The long double should be a 80-bit extended precision
@@ -51,17 +52,26 @@ typedef struct		s_f80_data
 
 typedef struct 		s_f80_b10
 {
-	char		buf[F80_MAXDIGITS_B10];
-	t_bigint	p;
-	t_bigint	q;
-	int16_t		exp;
 	uint8_t		sign;
-	const char	*(*inf)(int);
-	const char	*(*nan)(int);
-	size_t		(*get_digits)(struct s_f80_b10 *, size_t);
+	char		decimal[F80_MAXDEC_B10];
+	char		fractional[F80_MAXFRAC_B10];
+	int16_t		exp;
+	uint8_t		sci;
+	size_t		precision;
+	uint8_t		carry;
+	size_t		dec_len;
+	size_t		frac_len;
+	// char		buf[F80_MAXDIGITS_B10];
+	// t_bigint	p;
+	// t_bigint	q;
+	// int16_t		exp;
+	// uint8_t		sign;
+	// const char	*(*inf)(int);
+	// const char	*(*nan)(int);
+	// size_t		(*get_digits)(struct s_f80_b10 *, size_t);
 }					t_f80_b10;
 
 t_f80_data		ft_float80_extract(t_float80 n);
-void			ft_float80_b10(t_f80_b10 *b10, t_float80 n);
+void			ft_float80_b10(t_f80_b10 *b10, t_float80 n, size_t pre);
 
 #endif

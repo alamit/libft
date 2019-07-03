@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_format_precision.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 16:07:27 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/03 10:07:18 by alamit           ###   ########.fr       */
+/*   Created: 2019/07/02 16:15:53 by alamit            #+#    #+#             */
+/*   Updated: 2019/07/02 16:16:22 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_toupper(int c)
+#include <ft_format.h>
+
+size_t	ft_format_precision(t_format *f)
 {
-	if (ft_islower(c))
-		return (c - ('a' - 'A'));
-	return (c);
+	return (f->precision);
 }

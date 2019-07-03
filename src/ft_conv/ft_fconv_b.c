@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_fconv_b.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 16:07:27 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/03 10:07:18 by alamit           ###   ########.fr       */
+/*   Created: 2019/07/03 11:21:17 by alamit            #+#    #+#             */
+/*   Updated: 2019/07/03 11:23:16 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_toupper(int c)
+#include <ft_conv.h>
+#include <ft_buff.h>
+#include <ft_format.h>
+#include <inttypes.h>
+
+int		ft_fconv_b(t_buff *buf, t_format *f, uint64_t n)
 {
-	if (ft_islower(c))
-		return (c - ('a' - 'A'));
-	return (c);
+	return (ft_fconv_u_base(buf, f, n, 1));
 }

@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 06:42:46 by alamit            #+#    #+#             */
-/*   Updated: 2019/04/05 20:41:44 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/02 15:55:25 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,10 @@ int		main(void)
 	// printf("%se%+d\n\n", buf, expb10);
 	// printf("%+50.10Le\n", ext.n);
 	// fflush(stdout);
-	char buf[16384];
-	size_t x = ft_conv_e(buf, "%+50.12000Le", ext.n);
-	write(1, buf, x);
+	t_buff	buf;
+	ft_buff_init(&buf, 1, NULL);
+	ft_conv_e(&buf, "%+50.12000Le", ext.n);
+	ft_debuff(&buf);
 	// int x = ft_conv_f(&buff, "%+0200.10Lf", ext.n);
 	// ft_debuff(&buff);
 	// puts("");

@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conv_d.c                                        :+:      :+:    :+:   */
+/*   ft_format_has_flag.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/27 21:55:20 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/03 11:05:51 by alamit           ###   ########.fr       */
+/*   Created: 2019/07/02 16:07:23 by alamit            #+#    #+#             */
+/*   Updated: 2019/07/02 16:13:13 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_conv.h>
-#include <inttypes.h>
 #include <ft_format.h>
+#include <ft_string.h>
 
-int		ft_conv_d(t_buff *buf, const char *format, int64_t n)
+int8_t		ft_format_has_flag(t_format *f, char flag)
 {
-	t_format	f;
-
-	if (ft_format_parse(&f, format) >= 0)
-		return (ft_fconv_d(buf, &f, n));
-	return (-1);
+	if (flag == '#')
+		return (f->flags & 0x01);
+	else if (flag == '0')
+		return (f->flags & 0x02);
+	else if (flag == ' ')
+		return (f->flags & 0x04);
+	else if (flag == '+')
+		return (f->flags & 0x08);
+	else if (flag == '-')
+		return (f->flags & 0x10);
+	else if (flag == '\'')
+		return (f->flags & 0x20);
+	else
+		return (0);
 }

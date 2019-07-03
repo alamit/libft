@@ -6,13 +6,13 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 16:08:31 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/13 16:15:03 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/03 10:07:35 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_tolower(int c)
 {
-	if (c >= 'A' && c <= 'Z')
+	if (ft_isupper(c))
 		return (c + ('a' - 'A'));
 	return (c);
 }

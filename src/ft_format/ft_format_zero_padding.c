@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_format_zero_padding.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 16:07:27 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/03 10:07:18 by alamit           ###   ########.fr       */
+/*   Created: 2019/07/02 16:27:24 by alamit            #+#    #+#             */
+/*   Updated: 2019/07/02 16:31:20 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_toupper(int c)
+#include <ft_format.h>
+
+size_t	ft_format_zero_padding(t_format *f, size_t conv_len)
 {
-	if (ft_islower(c))
-		return (c - ('a' - 'A'));
-	return (c);
+	if (f->field_width > conv_len && ft_format_has_flag(f, '-'))
+		return (f->field_width - conv_len);
+	return (0);
 }
