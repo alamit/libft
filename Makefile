@@ -6,7 +6,7 @@
 #    By: alamit <alamit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2019/07/03 18:30:52 by alamit           ###   ########.fr        #
+#    Updated: 2019/07/04 17:02:54 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,6 +98,7 @@ FT_CONV			=	ft_atoi.c \
 					ft_fconv_s.c \
 					ft_fconv_u.c \
 					ft_fconv_u_base.c \
+					ft_fconv_integer.c \
 					ft_fconv_x.c \
 					ft_itoa.c \
 					ft_itoa_buf.c
@@ -135,7 +136,8 @@ FT_FORMAT		=	ft_format_add_length_mod.c \
 					ft_format_set_flag.c \
 					ft_format_set_type.c \
 					ft_format_sign.c \
-					ft_format_zero_padding.c
+					ft_format_zero_padding.c \
+					ft_format_prefix.c
 FT_FORMAT		:=	$(FT_FORMAT:%.c=ft_format/%.c)
 
 FT_LIST			=	ft_lst_to_array.c \
@@ -158,7 +160,8 @@ FT_MATH			=	ft_abs.c \
 					ft_lowersqrt.c \
 					ft_submin0.c \
 					ft_max.c \
-					ft_min.c
+					ft_min.c \
+					ft_log.c
 FT_MATH			:=	$(FT_MATH:%.c=ft_math/%.c)
 
 FT_STDIO		=	ft_putchar_fd.c \

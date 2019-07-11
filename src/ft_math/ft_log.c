@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fconv_c.c                                       :+:      :+:    :+:   */
+/*   ft_log.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/03 11:23:25 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/11 17:15:19 by alamit           ###   ########.fr       */
+/*   Created: 2019/07/04 17:00:28 by alamit            #+#    #+#             */
+/*   Updated: 2019/07/04 17:02:31 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_conv.h>
-#include <ft_buff.h>
-#include <ft_format.h>
+#include <sys/types.h>
+#include <inttypes.h>
 
-int		ft_fconv_c(t_buff *buf, t_format *f, int c)
+size_t	ft_log(uint64_t n, uint8_t base)
 {
-	ft_buffc(buf, ' ', ft_format_left_padding(f, 1));
-	ft_buffc(buf, '0', ft_format_zero_padding(f, 1));
-	ft_buffc(buf, (unsigned char)c, 1);
-	ft_buffc(buf, ' ', ft_format_right_padding(f, 1));
-	return (0);
+	size_t	res;
+
+	res = 0;
+	while (n > 0)
+	{
+		n /= base;
+		++res;
+	}
+	return (res);
 }

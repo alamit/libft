@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 06:42:46 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/03 18:32:02 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/05 14:58:02 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,11 @@ int		main(void)
 	// fflush(stdout);
 	t_buff	buf;
 	ft_buff_init(&buf, 1, NULL);
-	ft_conv_f(&buf, "%+50.20000Le", ext.n);
+	ft_conv_b(&buf, "%#050.20b", 0);
+	ft_buffc(&buf, '\n', 1);
+	ft_conv_x(&buf, "%#050.20x", 0);
 	ft_debuff(&buf);
-	printf("\n%+50.20000Lf\n", ext.n);
+	printf("\n%#050.20x\n", 0);
 	// int x = ft_conv_f(&buff, "%+0200.10Lf", ext.n);
 	// ft_debuff(&buff);
 	// puts("");

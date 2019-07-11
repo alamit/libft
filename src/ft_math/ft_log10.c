@@ -6,18 +6,19 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 12:53:28 by alamit            #+#    #+#             */
-/*   Updated: 2019/03/28 13:09:40 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/04 17:02:26 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_math.h>
+#include <sys/types.h>
+#include <inttypes.h>
 
 size_t	ft_log10(uint64_t n)
 {
 	size_t	res;
 
 	res = 0;
-	while (n)
+	while (n > 0)
 	{
 		n /= 10;
 		++res;

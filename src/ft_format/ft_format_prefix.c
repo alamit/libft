@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fconv_c.c                                       :+:      :+:    :+:   */
+/*   ft_format_prefix.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/03 11:23:25 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/11 17:15:19 by alamit           ###   ########.fr       */
+/*   Created: 2019/07/04 16:24:57 by alamit            #+#    #+#             */
+/*   Updated: 2019/07/04 16:28:54 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_conv.h>
-#include <ft_buff.h>
 #include <ft_format.h>
 
-int		ft_fconv_c(t_buff *buf, t_format *f, int c)
+const char	*ft_format_prefix(t_format *f)
 {
-	ft_buffc(buf, ' ', ft_format_left_padding(f, 1));
-	ft_buffc(buf, '0', ft_format_zero_padding(f, 1));
-	ft_buffc(buf, (unsigned char)c, 1);
-	ft_buffc(buf, ' ', ft_format_right_padding(f, 1));
-	return (0);
+	if (ft_format_has_flag(f, '#'))
+	{
+		if (f->type == 'x')
+			return (f->upper ? "0X" : "0x");
+		else if (f->type == 'o')
+			return ("0");
+		else if (f->type == 'b')
+			return (f->upper ? "0B" : "0b");
+	}
+	return ("");
 }
