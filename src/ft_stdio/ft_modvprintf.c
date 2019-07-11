@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_modvprintf.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 15:07:55 by alamit            #+#    #+#             */
-/*   Updated: 2019/02/27 16:35:28 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/11 18:50:21 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #include <ft_buff.h>
 #include <ft_format.h>
 #include <stdlib.h>
-
-static int	failure(t_buff *buff)
-{
-	free(buff->str);
-	return (-1);
-}
 
 static int	is_anchor(char c)
 {
@@ -42,22 +36,20 @@ int			ft_modvprintf(int fd, char **str, const char *format, va_list ap)
 {
 	t_buff		buff;
 
-	ft_buff_init(&buff, fd);
+	ft_buff_init(&buff, fd, str);
 	while (*format)
 	{
 		if (is_anchor(*format))
 		{
 			if (!convert(&format, &buff, ap))
-				return (failure(&buff));
+				return (-1);
 			continue;
 		}
 		if (!ft_buff(&buff, format, 1))
-			return (failure(&buff));
+			return (-1);
 		format++;
 	}
 	if (!ft_debuff(&buff))
-		return (failure(&buff));
-	if (str)
-		*str = buff.str;
+		return (-1);
 	return (buff.written);
 }
