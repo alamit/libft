@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 06:42:46 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/12 11:16:20 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/12 12:02:50 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,16 @@ int		main(void)
 	// printf("%se%+d\n\n", buf, expb10);
 	// printf("%+50.10Le\n", ext.n);
 	// fflush(stdout);
-	ft_printf("%#050.20x\n", 0);
-	printf("%#050.20x\n", 0);
+	ft_printf("ft_printf: %#050.20x\n", 1);
+	printf("   printf: %#050.20x\n", 1);
+	ft_printf("ft_printf: %#050.20Le\n", ext.n);
+	printf("   printf: %#050.20Le\n", ext.n);
+	ft_printf("ft_printf: %#050.20Lf\n", ext.n);
+	printf("   printf: %#050.20Lf\n", ext.n);
+	ft_printf("ft_printf: %50c\n", 'a');
+	printf("   printf: %50c\n", 'a');
+	ft_printf("ft_printf: %50.20s\n", "Hello world!");
+	printf("   printf: %50.20s\n", "Hello world!");
 	// int x = ft_conv_f(&buff, "%+0200.10Lf", ext.n);
 	// ft_debuff(&buff);
 	// puts("");

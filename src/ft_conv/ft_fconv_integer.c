@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 08:59:22 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/04 09:32:08 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/12 11:58:08 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int				ft_fconv_integer(t_buff *buf, t_format *f, uint64_t n,
 	size_t		len;
 	size_t		expb10;
 
-	expb10 = ft_log10(n);
+	expb10 = ft_log10(n) - 1;
 	len = conv_len(expb10, f, sign);
 	ft_buffc(buf, ' ',
 		ft_format_left_padding(f, len + ft_submin0(f->precision, expb10)));
