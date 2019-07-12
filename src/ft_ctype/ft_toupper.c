@@ -6,13 +6,15 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 16:07:27 by alamit            #+#    #+#             */
-/*   Updated: 2018/11/13 16:14:30 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/03 11:43:54 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <ft_ctype.h>
+
 int		ft_toupper(int c)
 {
-	if (c >= 'a' && c <= 'z')
+	if (ft_islower(c))
 		return (c - ('a' - 'A'));
 	return (c);
 }

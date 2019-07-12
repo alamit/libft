@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 20:13:06 by alamit            #+#    #+#             */
-/*   Updated: 2019/03/21 03:41:22 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/03 10:07:59 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ int				ft_tolower(int c);
 int				ft_isspace(int c);
 int				ft_num2char(int c);
 int				ft_char2num(int c);
+int				ft_isupper(int c);
+int				ft_islower(int c);
 
 #endif
