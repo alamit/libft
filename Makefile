@@ -6,7 +6,7 @@
 #    By: alamit <alamit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2019/07/12 11:07:57 by alamit           ###   ########.fr        #
+#    Updated: 2019/07/12 11:23:29 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,8 @@ SRC				= 	$(FT_BIGINT) \
 					$(FT_LIST) \
 					$(FT_MATH) \
 					$(FT_STDIO) \
-					$(FT_STRING)
+					$(FT_STRING) \
+					$(FT_VPRINTF)
 
 OBJ				=	$(SRC:%.c=$(OBJ_DIR)/%.o)
 
@@ -144,7 +145,8 @@ FT_FORMAT		=	ft_format_add_length_mod.c \
 					ft_format_sign.c \
 					ft_format_zero_padding.c \
 					ft_format_prefix.c \
-					ft_format_write.c
+					ft_format_write.c \
+					ft_format_lenmod.c
 FT_FORMAT		:=	$(FT_FORMAT:%.c=ft_format/%.c)
 
 FT_LIST			=	ft_lst_to_array.c \

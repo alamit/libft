@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 12:31:50 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/12 10:51:32 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/12 11:21:57 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ static int (* const conv[26])(t_buff *, t_format *, va_list) = {
 	NULL
 };
 
-int			ft_format_write(t_format *f, t_buff *buff, va_list ap)
+int			ft_format_write(t_buff *buf, t_format *f, va_list ap)
 {
 	if (f->type - 'a' < 0 || f->type - 'a' > 25 || !conv[f->type - 'a'])
 		return (0);
-	return (conv[f->type - 'a'](buff, f, ap));
+	return (conv[f->type - 'a'](buf, f, ap));
 }

@@ -3,26 +3,8 @@
 
 # include <sys/types.h>
 # include <inttypes.h>
-
-# define ALPHA_OCT "01234567"
-# define ALPHA_DEC "0123456789"
-# define ALPHA_HEX_UP "0123456789ABCDEF"
-# define ALPHA_HEX_LO "0123456789abcdef"
-# define ALPHA_BIN "01"
-
-# define PREFIX_OCT "0"
-# define PREFIX_HEX_LO "0x"
-# define PREFIX_HEX_UP "0X"
-# define PREFIX_BIN "0b"
-# define PREFIX_DEC ""
-
-# define DEFAULT_DEC_SEPFREQ 3
-# define DEFAULT_HEX_SEPFREQ 2
-# define DEFAULT_OCT_SEPFREQ 4
-# define DEFAULT_BIN_SEPFREQ 8
-
-# define DEFAULT_DEC_SEP '\''
-# define DEFAULT_SEP ':'
+# include <ft_buff.h>
+# include <stdarg.h>
 
 typedef struct	s_format
 {
@@ -47,7 +29,9 @@ size_t			ft_format_zero_padding(t_format *f, size_t len);
 char			ft_format_separator(t_format *f);
 size_t			ft_format_precision(t_format *f);
 size_t			ft_format_right_padding(t_format *f, size_t len);
-uint8_t			ft_format_lenmod(t_format *f);
+int8_t			ft_format_lenmod(t_format *f);
 char			ft_format_type(t_format *f);
+
+int				ft_format_write(t_buff *buf, t_format *f, va_list ap);
 
 #endif
