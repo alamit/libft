@@ -16,7 +16,7 @@ typedef struct	s_format
 	uint8_t		upper;
 }				t_format;
 
-ssize_t			ft_format_parse(t_format *f, const char *format);
+const char		*ft_format_parse(t_format *f, const char *format);
 void			ft_format_set_flag(t_format *f, char flag);
 void			ft_format_add_length_mod(t_format *f, char length_mod);
 void			ft_format_set_type(t_format *f, char type);

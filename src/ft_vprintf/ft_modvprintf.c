@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 15:07:55 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/12 11:22:25 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/12 11:32:57 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ static int	is_anchor(char c)
 	return (c == '%');
 }
 
-static int	convert(const char *format, t_buff *buff, va_list ap)
+static int	convert(const char **format, t_buff *buff, va_list ap)
 {
 	t_format	f;
 	int			res;
 
-	if (!ft_format_parse(&f, format))
+	if (!(*format = ft_format_parse(&f, *format)))
 		return (0);
 	if ((res = ft_format_write(buff, &f, ap)) < 0)
 		return (0);
@@ -41,7 +41,7 @@ int			ft_modvprintf(int fd, char **str, const char *format, va_list ap)
 	{
 		if (is_anchor(*format))
 		{
-			if (!convert(format, &buff, ap))
+			if (!convert(&format, &buff, ap))
 				return (-1);
 			continue;
 		}

@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:36:53 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/03 10:22:31 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/12 11:30:58 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,14 @@ static int	format_valid(t_format *f)
 	return (0);
 }
 
-ssize_t		ft_format_parse(t_format *f, const char *format)
+const char	*ft_format_parse(t_format *f, const char *format)
 {
 	const char *start;
 
 	start = format;
 	ft_bzero(f, sizeof(t_format));
 	if (!(*format == '%') || !*++format)
-		return (-1);
+		return (NULL);
 	while (is_flag(*format))
 		ft_format_set_flag(f, *(format++));
 	f->field_width = ft_atoi(format);
@@ -67,6 +67,6 @@ ssize_t		ft_format_parse(t_format *f, const char *format)
 	if (is_type(*format))
 		ft_format_set_type(f, *(format++));
 	else
-		return (-1);
-	return (format_valid(f) ? format - start : -1);
+		return (NULL);
+	return (format_valid(f) ? format : NULL);
 }
