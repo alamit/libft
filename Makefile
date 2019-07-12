@@ -6,7 +6,7 @@
 #    By: alamit <alamit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2019/07/04 17:02:54 by alamit           ###   ########.fr        #
+#    Updated: 2019/07/12 11:07:57 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,8 @@ INCLUDE			=	ft_bigint.h \
 					ft_list.h \
 					ft_math.h \
 					ft_stdio.h \
-					ft_string.h
+					ft_string.h \
+					ft_vprintf.h
 
 FT_BIGINT		=	ft_bigint_add.c \
 					ft_bigint_cmp.c \
@@ -81,8 +82,6 @@ FT_CONV			=	ft_atoi.c \
 					ft_conv_d.c \
 					ft_conv_e.c \
 					ft_conv_f.c \
-					ft_conv_lc.c \
-					ft_conv_ls.c \
 					ft_conv_o.c \
 					ft_conv_s.c \
 					ft_conv_u.c \
@@ -92,14 +91,21 @@ FT_CONV			=	ft_atoi.c \
 					ft_fconv_d.c \
 					ft_fconv_e.c \
 					ft_fconv_f.c \
-					ft_fconv_lc.c \
-					ft_fconv_ls.c \
 					ft_fconv_o.c \
 					ft_fconv_s.c \
 					ft_fconv_u.c \
 					ft_fconv_u_base.c \
 					ft_fconv_integer.c \
 					ft_fconv_x.c \
+					ft_vfconv_b.c \
+					ft_vfconv_c.c \
+					ft_vfconv_d.c \
+					ft_vfconv_e.c \
+					ft_vfconv_f.c \
+					ft_vfconv_o.c \
+					ft_vfconv_s.c \
+					ft_vfconv_u.c \
+					ft_vfconv_x.c \
 					ft_itoa.c \
 					ft_itoa_buf.c
 FT_CONV			:=	$(FT_CONV:%.c=ft_conv/%.c)
@@ -137,7 +143,8 @@ FT_FORMAT		=	ft_format_add_length_mod.c \
 					ft_format_set_type.c \
 					ft_format_sign.c \
 					ft_format_zero_padding.c \
-					ft_format_prefix.c
+					ft_format_prefix.c \
+					ft_format_write.c
 FT_FORMAT		:=	$(FT_FORMAT:%.c=ft_format/%.c)
 
 FT_LIST			=	ft_lst_to_array.c \
@@ -170,7 +177,10 @@ FT_STDIO		=	ft_putchar_fd.c \
 					ft_putnbr_fd.c \
 					ft_putnbr_fd.c \
 					ft_putstr_fd.c \
-					ft_putstr.c
+					ft_putstr.c \
+					ft_printf.c \
+					ft_dprintf.c \
+					ft_sprintf.c
 FT_STDIO		:=	$(FT_STDIO:%.c=ft_stdio/%.c)
 
 FT_STRING		=	ft_bzero.c \
@@ -208,6 +218,12 @@ FT_STRING		=	ft_bzero.c \
 					ft_strsub.c \
 					ft_strtrim.c
 FT_STRING		:=	$(FT_STRING:%.c=ft_string/%.c)
+
+FT_VPRINTF		=	ft_vsprintf.c \
+					ft_vdprintf.c \
+					ft_vprintf.c \
+					ft_modvprintf.c
+FT_VPRINTF		:=	$(FT_VPRINTF:%.c=ft_vprintf/%.c)
 
 # ---------------------------------------------------------------------------- #
 

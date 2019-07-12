@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conv_ls.c                                       :+:      :+:    :+:   */
+/*   ft_dprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/03 11:16:45 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/03 11:50:58 by alamit           ###   ########.fr       */
+/*   Created: 2019/07/12 11:00:09 by alamit            #+#    #+#             */
+/*   Updated: 2019/07/12 11:03:50 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_conv.h>
-#include <ft_buff.h>
-#include <wchar.h>
-#include <ft_format.h>
+#include <ft_vprintf.h>
 
-int		ft_conv_ls(t_buff *buf, const char *format, wchar_t *ws)
+int		ft_dprintf(int fd, const char *format, ...)
 {
-	t_format	f;
+	int			res;
+	va_list		ap;
 
-	if (ft_format_parse(&f, format) >= 0)
-		return (ft_fconv_ls(buf, &f, ws));
-	return (-1);
+	va_start(ap, format);
+	res = ft_vdprintf(fd, format, ap);
+	va_end(ap);
+	return (res);
 }

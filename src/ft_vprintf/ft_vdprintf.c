@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conv_lc.c                                       :+:      :+:    :+:   */
+/*   ft_vdprintf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/03 11:14:38 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/03 11:50:11 by alamit           ###   ########.fr       */
+/*   Created: 2019/07/12 10:56:09 by alamit            #+#    #+#             */
+/*   Updated: 2019/07/12 10:57:30 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_conv.h>
-#include <ft_buff.h>
-#include <wchar.h>
-#include <ft_format.h>
+#include <ft_vprintf.h>
+#include <stddef.h>
 
-int		ft_conv_lc(t_buff *buf, const char *format, wint_t wc)
+int		ft_vdprintf(int fd, const char *format, va_list ap)
 {
-	t_format	f;
-
-	if (ft_format_parse(&f, format) >= 0)
-		return (ft_fconv_lc(buf, &f, wc));
-	return (-1);
+	return (ft_modvprintf(fd, NULL, format, ap));
 }

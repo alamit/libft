@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 20:24:03 by alamit            #+#    #+#             */
-/*   Updated: 2019/03/27 23:08:26 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/12 11:06:08 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,8 @@ void	ft_putstr_fd(const char *s, int fd);
 void	ft_putendl_fd(const char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 int		get_next_line(const int fd, char **line);
+int		ft_printf(const char *format, ...);
+int		ft_dprintf(int fd, const char *format, ...);
+int		ft_sprintf(char **str, const char *format, ...);
 
 #endif

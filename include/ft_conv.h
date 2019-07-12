@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 20:34:48 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/04 09:30:02 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/12 10:31:45 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 # include <ft_floattypes.h>
 # include <ft_format.h>
 # include <ft_buff.h>
-# include <wchar.h>
+# include <stdarg.h>
+
 /*
 **	Convertsions from string to type.
 */
@@ -35,13 +36,21 @@ int				ft_fconv_x(t_buff *buf, t_format *format, uint64_t n);
 int				ft_fconv_o(t_buff *buf, t_format *format, uint64_t n);
 int				ft_fconv_b(t_buff *buf, t_format *format, uint64_t n);
 int				ft_fconv_c(t_buff *buf, t_format *format, int c);
-int				ft_fconv_lc(t_buff *buf, t_format *format, wint_t wc);
 int				ft_fconv_s(t_buff *buf, t_format *format, char *s);
-int				ft_fconv_ls(t_buff *buf, t_format *format, wchar_t *ws);
 int				ft_fconv_integer(t_buff *buf, t_format *format, uint64_t n,
 					uint8_t sign);
 int				ft_fconv_u_base(t_buff *buf, t_format *format, uint64_t n,
 					uint8_t base_expb2);
+
+int				ft_vfconv_e(t_buff *buf, t_format *f, va_list ap);
+int				ft_vfconv_f(t_buff *buf, t_format *f, va_list ap);
+int				ft_vfconv_d(t_buff *buf, t_format *f, va_list ap);
+int				ft_vfconv_u(t_buff *buf, t_format *f, va_list ap);
+int				ft_vfconv_x(t_buff *buf, t_format *f, va_list ap);
+int				ft_vfconv_o(t_buff *buf, t_format *f, va_list ap);
+int				ft_vfconv_b(t_buff *buf, t_format *f, va_list ap);
+int				ft_vfconv_c(t_buff *buf, t_format *f, va_list ap);
+int				ft_vfconv_s(t_buff *buf, t_format *f, va_list ap);
 
 int				ft_conv_e(t_buff *buf, const char *format, t_float80 n);
 int				ft_conv_f(t_buff *buf, const char *format, t_float80 n);
@@ -51,9 +60,7 @@ int				ft_conv_x(t_buff *buf, const char *format, uint64_t n);
 int				ft_conv_o(t_buff *buf, const char *format, uint64_t n);
 int				ft_conv_b(t_buff *buf, const char *format, uint64_t n);
 int				ft_conv_c(t_buff *buf, const char *format, int c);
-int				ft_conv_lc(t_buff *buf, const char *format, wint_t wc);
 int				ft_conv_s(t_buff *buf, const char *format, char *s);
-int				ft_conv_ls(t_buff *buf, const char *format, wchar_t *ws);
 
 char			*ft_itoa_buf(char *buf, size_t size, int n);
 
