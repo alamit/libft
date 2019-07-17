@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:01:23 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/03 12:03:27 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/17 06:56:15 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,8 @@ typedef struct 		s_f80_b10
 	uint8_t		carry;
 	size_t		dec_len;
 	size_t		frac_len;
-	// char		buf[F80_MAXDIGITS_B10];
-	// t_bigint	p;
-	// t_bigint	q;
-	// int16_t		exp;
-	// uint8_t		sign;
-	// const char	*(*inf)(int);
-	// const char	*(*nan)(int);
-	// size_t		(*get_digits)(struct s_f80_b10 *, size_t);
+	uint8_t		nan;
+	uint8_t		inf;
 }					t_f80_b10;
 
 t_f80_data		ft_float80_extract(t_float80 n);

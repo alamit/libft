@@ -2,3 +2,5 @@
 .vscode/**
 draft.c
 draft
+pft/
+Dockerfile

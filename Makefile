@@ -6,13 +6,13 @@
 #    By: alamit <alamit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2019/07/12 11:23:29 by alamit           ###   ########.fr        #
+#    Updated: 2019/07/12 13:06:19 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # GLOBAL CONFIG -------------------------------------------------------------- #
 
-NAME = libft.a
+NAME = libftprintf.a
 
 DEBUG_EXEC = draft
 DEBUG_MAIN = $(DEBUG_EXEC).c
@@ -146,7 +146,8 @@ FT_FORMAT		=	ft_format_add_length_mod.c \
 					ft_format_zero_padding.c \
 					ft_format_prefix.c \
 					ft_format_write.c \
-					ft_format_lenmod.c
+					ft_format_lenmod.c \
+					ft_format_set_precision.c
 FT_FORMAT		:=	$(FT_FORMAT:%.c=ft_format/%.c)
 
 FT_LIST			=	ft_lst_to_array.c \

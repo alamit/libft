@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 06:42:46 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/12 12:02:50 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/17 07:12:28 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <locale.h>
 #include <unistd.h>
 #include <ft_stdio.h>
+#include <math.h>
 
 typedef union	s_ldext
 {
@@ -32,35 +33,30 @@ int		main(void)
 	long double		n = -1.0;
 	long double		m = 9999999999999999989.0L;
 	long double		o = 99999.999999999999L;
-	(void)n;
+	(void)m;
 	(void)o;
 	t_ldext			ext;
-	ext.n = m;
+	ext.n = n;
 	setlocale(LC_ALL, "");
 	struct lconv *ptrLocale = localeconv();
 	ptrLocale->thousands_sep = "'";
 	ptrLocale->decimal_point = ".";
 	//ext.f.mantissa >>= 63;
-	ext.f.exp -= 16180;
+	ext.f.exp -= 16382;
 	// ext.f.exp = 0; // DENORMAL
 	// char	buf[15000];
 	// int		expb10 = ft_ld2buf(buf, ext.n, 10, 0);
 	// printf("%se%+d\n\n", buf, expb10);
 	// printf("%+50.10Le\n", ext.n);
 	// fflush(stdout);
-	ft_printf("ft_printf: %#050.20x\n", 1);
-	printf("   printf: %#050.20x\n", 1);
-	ft_printf("ft_printf: %#050.20Le\n", ext.n);
-	printf("   printf: %#050.20Le\n", ext.n);
-	ft_printf("ft_printf: %#050.20Lf\n", ext.n);
-	printf("   printf: %#050.20Lf\n", ext.n);
-	ft_printf("ft_printf: %50c\n", 'a');
-	printf("   printf: %50c\n", 'a');
-	ft_printf("ft_printf: %50.20s\n", "Hello world!");
-	printf("   printf: %50.20s\n", "Hello world!");
-	// int x = ft_conv_f(&buff, "%+0200.10Lf", ext.n);
-	// ft_debuff(&buff);
-	// puts("");
-	// printf("%d\n", x);
+	ft_printf("%+025.15Letest\n", -1.0L/0.0L);
+	printf("%+025.15Letest\n", -1.0L/0.0L);
+	ft_printf("%ftest\n", -8000.0);
+	printf("%ftest\n", -8000.0);
+	ft_printf("%ftest\n", 9.999999);
+	printf("%ftest\n", 9.999999);
+	ft_printf("%ftest\n", -56.2012685);
+	printf("%ftest\n", -56.2012685);
+
 	return (0);
 }

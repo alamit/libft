@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:36:53 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/12 11:30:58 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/17 02:51:48 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,17 @@ static int	format_valid(t_format *f)
 	if (f->type == 'd' || f-> type == 'i' || f->type == 'o' || f->type == 'u'
 		|| f->type == 'x' || f->type == 'b')
 		return (f->length_mod >= -2 && f->length_mod <= 2);
+	if (f->type == 'p')
+		return (f->length_mod == 1);
+	if (f->type == '%')
+		return (1);
 	return (0);
 }
 
 const char	*ft_format_parse(t_format *f, const char *format)
 {
-	const char *start;
+	ssize_t	precision;
 
-	start = format;
 	ft_bzero(f, sizeof(t_format));
 	if (!(*format == '%') || !*++format)
 		return (NULL);
@@ -59,7 +62,7 @@ const char	*ft_format_parse(t_format *f, const char *format)
 	f->field_width = ft_atoi(format);
 	while (ft_isdigit(*format))
 		++format;
-	f->precision = *format == '.' ? ft_atoi(++format) : 6;
+	precision = *format == '.' ? ft_atoi(++format) : -1;
 	while (ft_isdigit(*format))
 		++format;
 	while (is_len_mod(*format))
@@ -68,5 +71,6 @@ const char	*ft_format_parse(t_format *f, const char *format)
 		ft_format_set_type(f, *(format++));
 	else
 		return (NULL);
+	ft_format_set_precision(f, precision);
 	return (format_valid(f) ? format : NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 17:16:02 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/03 18:28:54 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/16 14:53:00 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int64_t		ft_ipow(int64_t n, uint8_t exp)
 {
-	int res;
+	int64_t res;
 
 	res = 1;
 	while (exp)

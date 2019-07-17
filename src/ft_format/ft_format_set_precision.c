@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_set_type.c                               :+:      :+:    :+:   */
+/*   ft_format_set_precision.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/02 16:18:28 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/17 03:07:47 by alamit           ###   ########.fr       */
+/*   Created: 2019/07/12 13:00:27 by alamit            #+#    #+#             */
+/*   Updated: 2019/07/17 03:07:31 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_format.h>
-#include <ft_ctype.h>
+#include <ft_string.h>
+#include <inttypes.h>
 
-void	ft_format_set_type(t_format *f, char type)
+void	ft_format_set_precision(t_format *f, int32_t precision)
 {
-	if (type == 'p')
-		ft_format_set_flag(f, '#');
-	f->type = ft_isupper(type) ? ft_tolower(type) : type;
-	if (type == 'D' || type == 'O' || type == 'U'
-		|| type == 'I' || type =='B' || type == 'p')
-		ft_format_add_length_mod(f, 'l');
+	if (precision < 0)
+	{
+		if (ft_strchr("diouxbp", f->type))
+			f->precision = 1;
+		else if (f->type == 's')
+			f->precision = UINT32_MAX;
+		else
+			f->precision = 6;
+	}
 	else
-		f->upper = ft_isupper(type);
+	{
+		f->precision = precision;
+		if (ft_strchr("diouxbp", f->type))
+			f->flags &= ~0x02;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:05:10 by alamit            #+#    #+#             */
-/*   Updated: 2019/03/28 20:09:33 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/17 07:14:38 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,14 @@ t_f80_data	ft_float80_extract(t_float80 n)
 			res.type = NAN;
 		res.expb2 = 0;
 		res.mantissa = 0;
+		res.sign = res.type == NAN ? 0 : res.sign;
 		return (res);
 	}
 	res.type = VAL;
 	res.expb2 = !extractor.f.exp && extractor.f.mantissa
 		? MIN_EXP : MIN_EXP + extractor.f.exp - 1;
+	if (!extractor.f.exp && !extractor.f.mantissa)
+		res.expb2 = 0;
 	res.mantissa = extractor.f.mantissa;
 	return (res);
 }
