@@ -4,3 +4,7 @@ draft.c
 draft
 pft/
 Dockerfile
+*draft*.c
+*.txt
+lib*.a
+obj/
