@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 13:21:50 by alamit            #+#    #+#             */
-/*   Updated: 2019/03/20 22:02:21 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/22 13:43:21 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <stdlib.h>
 #include <ft_list.h>
 #include <ft_string.h>
+#include <ft_stdio.h>
+#include <ft_buff.h>
 
 /*
 **  Function to delete a string used by ft_lstdel.
