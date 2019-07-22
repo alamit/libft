@@ -6,7 +6,7 @@
 #    By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2019/07/22 10:26:59 by alamit           ###   ########.fr        #
+#    Updated: 2019/07/22 15:08:26 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,14 +49,14 @@ INCLUDE			=	ft_bigint.h \
 					ft_conv.h \
 					ft_ctype.h \
 					ft_float.h \
-					ft_float_params.h \
 					ft_floattypes.h \
 					ft_format.h \
 					ft_list.h \
 					ft_math.h \
 					ft_stdio.h \
 					ft_string.h \
-					ft_vprintf.h
+					ft_vprintf.h \
+					ft_printf.h
 
 FT_BIGINT		=	ft_bigint_add.c \
 					ft_bigint_cmp.c \
@@ -235,7 +235,7 @@ FT_VPRINTF		:=	$(FT_VPRINTF:%.c=ft_vprintf/%.c)
 .PHONY: all
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(INCLUDE:%.h=$(INC_DIR)/%.h)
 	@echo "Compressing objects into $@"
 	@ar -rcs $(NAME) $(OBJ)
 	@echo "COMPILATION SUCCESSFUL"
