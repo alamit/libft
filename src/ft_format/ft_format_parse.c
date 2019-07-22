@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:36:53 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/22 10:38:38 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/22 14:54:21 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 #include <ft_string.h>
 #include <stddef.h>
 
-#define FLAGS "#0 +-'"
+#define FLAGS "#0 +-"
 #define LEN_MOD "hlLz"
-#define TYPES "diouxXDOUfFeEcCsSpbB%"
+#define TYPES "diouxXDOUfFeEcspbB%"
 
 static int	is_flag(char c)
 {

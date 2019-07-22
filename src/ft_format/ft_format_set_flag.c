@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format_set_flag.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 16:16:27 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/03 12:47:53 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/22 14:54:34 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,4 @@ void	ft_format_set_flag(t_format *f, char flag)
 		f->flags |= 0x08;
 	else if (flag == '-')
 		f->flags |= 0x10;
-	else if (flag == '\'')
-		f->flags |= 0x20;
 }
