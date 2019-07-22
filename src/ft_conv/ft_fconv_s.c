@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fconv_s.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 11:26:22 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/17 01:28:50 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/22 13:17:34 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ int		ft_fconv_s(t_buff *buf, t_format *f, char *s)
 	s = s ? s : "(null)";
 	len = ft_strlen(s);
 	len = len > f->precision ? f->precision : len;
-	ft_buffc(buf, ' ', ft_format_left_padding(f, len, 0, NULL));
-	ft_buffc(buf, '0', ft_format_zero_padding(f, len, 0, NULL));
-	ft_buff(buf, s, len);
-	ft_buffc(buf, ' ', ft_format_right_padding(f, len, 0, NULL));
+	if (!ft_buffc(buf, ' ', ft_format_left_padding(f, len, 0, NULL))
+		|| !ft_buffc(buf, '0', ft_format_zero_padding(f, len, 0, NULL))
+		|| !ft_buff(buf, s, len)
+		|| !ft_buffc(buf, ' ', ft_format_right_padding(f, len, 0, NULL)))
+		return (-1);
 	return (0);
 }

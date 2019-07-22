@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fconv_e.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:46:39 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/17 07:16:35 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/22 13:09:47 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,24 @@ static size_t	conv_len(t_f80_b10 *b10, t_format *f)
 		+ 2 + ft_log10(ft_abs(b10->exp)));
 }
 
+static int		convert(t_buff *buf, t_format *f, t_f80_b10 *b10)
+{
+	if (!b10->carry && !ft_buff(buf, b10->decimal, b10->dec_len))
+		return (-1);
+	else if (b10->carry && !ft_buffc(buf, '1', 1))
+		return (-1);
+	if ((b10->precision || ft_format_has_flag(f, '#'))
+		&& !ft_buffc(buf, '.', 1))
+		return (-1);
+	if (b10->carry && !ft_buff(buf, b10->decimal, b10->dec_len))
+		return (-1);
+	if (!ft_buff(buf, b10->fractional, ft_submin0(b10->frac_len, b10->carry))
+		|| !ft_buffc(buf, '0', ft_submin0(b10->precision, b10->frac_len))
+		|| !ft_buffc(buf, f->upper ? 'E' : 'e', 1))
+		return (-1);
+	return (ft_conv_d(buf, "%+.2d", b10->exp - 1));
+}
+
 int				ft_fconv_e(t_buff *buf, t_format *f, t_float80 n)
 {
 	t_f80_b10	b10;
@@ -37,29 +55,20 @@ int				ft_fconv_e(t_buff *buf, t_format *f, t_float80 n)
 	if (b10.inf || b10.nan)
 		f->flags &= ~0x02;
 	len = conv_len(&b10, f);
-	ft_buffc(buf, ' ', ft_format_left_padding(f, len, ft_format_sign(f, b10.sign), NULL));
-	if (ft_format_sign(f, b10.sign))
-		ft_buffc(buf, ft_format_sign(f, b10.sign), 1);
-	ft_buffc(buf, '0', ft_format_zero_padding(f, len, ft_format_sign(f, b10.sign), NULL));
-		if (b10.nan)
-		ft_buffs(buf, f->upper ? "NAN" : "nan");
-	else if (b10.inf)
-		ft_buffs(buf, f->upper ? "INF" : "inf");
-	else
-	{
-		if (!b10.carry)
-			ft_buff(buf, b10.decimal, b10.dec_len);
-		else
-			ft_buffc(buf, '1', 1);
-		if (b10.precision || ft_format_has_flag(f, '#'))
-			ft_buffc(buf, '.', 1);
-		if (b10.carry)
-			ft_buff(buf, b10.decimal, b10.dec_len);
-		ft_buff(buf, b10.fractional, ft_submin0(b10.frac_len, b10.carry));
-		ft_buffc(buf, '0', ft_submin0(b10.precision, b10.frac_len));
-		ft_buffc(buf, f->upper ? 'E' : 'e', 1);
-		ft_conv_d(buf, "%+.2d", b10.exp - 1);
-	}
-	ft_buffc(buf, ' ', ft_format_right_padding(f, len, ft_format_sign(f, b10.sign), NULL));
+	if (!ft_buffc(buf, ' ',
+		ft_format_left_padding(f, len, ft_format_sign(f, b10.sign), NULL))
+		|| (ft_format_sign(f, b10.sign)
+			&& !ft_buffc(buf, ft_format_sign(f, b10.sign), 1)))
+		return (-1);
+	if (!ft_buffc(buf, '0',
+		ft_format_zero_padding(f, len, ft_format_sign(f, b10.sign), NULL))
+		|| (b10.nan && !ft_buffs(buf, f->upper ? "NAN" : "nan"))
+		|| (b10.inf && !ft_buffs(buf, f->upper ? "INF" : "inf")))
+		return (-1);
+	else if (!b10.inf && !b10.nan && convert(buf, f, &b10) < 0)
+		return (-1);
+	if (!ft_buffc(buf, ' ',
+		ft_format_right_padding(f, len, ft_format_sign(f, b10.sign), NULL)))
+		return (-1);
 	return (0);
 }

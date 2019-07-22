@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_format.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/22 13:24:55 by alamit            #+#    #+#             */
+/*   Updated: 2019/07/22 13:25:08 by alamit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_FORMAT_H
 # define FT_FORMAT_H
 
@@ -23,13 +35,16 @@ void			ft_format_set_type(t_format *f, char type);
 void			ft_format_set_precision(t_format *f, int32_t precision);
 
 int8_t			ft_format_has_flag(t_format *f, char flag);
-size_t			ft_format_left_padding(t_format *f, size_t conv_len, char sign, const char *prefix);
+size_t			ft_format_left_padding(t_format *f, size_t conv_len, char sign,
+	const char *prefix);
 char			ft_format_sign(t_format *f, int is_neg);
 const char		*ft_format_prefix(t_format *f, size_t len);
-size_t			ft_format_zero_padding(t_format *f, size_t len, char sign, const char *prefix);
+size_t			ft_format_zero_padding(t_format *f, size_t len, char sign,
+	const char *prefix);
 char			ft_format_separator(t_format *f);
 size_t			ft_format_precision(t_format *f);
-size_t			ft_format_right_padding(t_format *f, size_t len, char sign, const char *prefix);
+size_t			ft_format_right_padding(t_format *f, size_t len, char sign,
+	const char *prefix);
 int8_t			ft_format_lenmod(t_format *f);
 char			ft_format_type(t_format *f);
 

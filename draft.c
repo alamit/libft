@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 06:42:46 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/17 07:12:28 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/22 13:07:56 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int		main(void)
 	// fflush(stdout);
 	ft_printf("%+025.15Letest\n", -1.0L/0.0L);
 	printf("%+025.15Letest\n", -1.0L/0.0L);
-	ft_printf("%ftest\n", -8000.0);
-	printf("%ftest\n", -8000.0);
+	ft_printf("%Letest\n", -8000.0L);
+	printf("%Letest\n", -8000.0L);
 	ft_printf("%ftest\n", 9.999999);
 	printf("%ftest\n", 9.999999);
 	ft_printf("%ftest\n", -56.2012685);

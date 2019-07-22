@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 11:32:51 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/22 10:30:58 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/22 12:26:12 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@
 **	The error is always 1 or 0.
 */
 
-static int32_t	log10_err(t_f80_data *n_data)
+static int32_t	log10_err(t_f80_data *data)
 {
 	int32_t		hbit;
 	int32_t		res;
 	uint64_t	mantissa;
 
 	hbit = 0;
-	mantissa = n_data->mantissa;
+	mantissa = data->mantissa;
 	if (!mantissa)
 		return (1);
 	while (!(mantissa & (1ul << 63)))
@@ -41,11 +41,11 @@ static int32_t	log10_err(t_f80_data *n_data)
 		++hbit;
 		mantissa <<= 1;
 	}
-	if (n_data->expb2 - hbit == 0)
+	if (data->expb2 - hbit == 0)
 		return (0);
-	res = (int32_t)((long double)(ft_abs(n_data->expb2) - hbit) * LOG10_2 - 0.69L);
+	res = (int32_t)((t_float80)(ft_abs(data->expb2) - hbit) * LOG10_2 - 0.69L);
 	res++;
-	return (n_data->expb2 >= 0 ? res : -res);
+	return (data->expb2 >= 0 ? res : -res);
 }
 
 static uint8_t	ft_round(t_f80_b10 *b10, uint8_t next)
@@ -100,6 +100,21 @@ static void		compute(t_f80_b10 *b10, t_bigint *p, t_bigint *q)
 	b10->carry = ft_round(b10, ft_bigint_div(p, q, 9));
 }
 
+void			b10_init(t_f80_b10 *b10, t_f80_data *f_data, size_t pre,
+	uint8_t sci)
+{
+	b10->sign = f_data->sign;
+	b10->nan = 0;
+	b10->inf = 0;
+	if (f_data->type == NAN)
+		b10->nan = 1;
+	else if (f_data->type == INF)
+		b10->inf = 1;
+	b10->exp = log10_err(f_data);
+	b10->precision = pre;
+	b10->sci = sci;
+}
+
 void			ft_float80_b10(t_f80_b10 *b10, t_float80 n, size_t pre,
 	uint8_t sci)
 {
@@ -108,16 +123,9 @@ void			ft_float80_b10(t_f80_b10 *b10, t_float80 n, size_t pre,
 	t_bigint	q;
 
 	f_data = ft_float80_extract(n);
-	b10->sign = f_data.sign;
-	b10->nan = 0;
-	b10->inf = 0;
-	if (f_data.type == NAN)
-		b10->nan = 1;
-	else if (f_data.type == INF)
-		b10->inf = 1;
-	b10->exp = log10_err(&f_data);
-	b10->precision = pre;
-	b10->sci = sci;
+	b10_init(b10, &f_data, pre, sci);
+	if (b10->inf || b10->nan)
+		return ;
 	p = ft_bigint_new(f_data.mantissa);
 	q = ft_bigint_new(1ll << 63);
 	if (f_data.expb2 >= 0)

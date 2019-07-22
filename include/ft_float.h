@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_float.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:01:23 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/17 06:56:15 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/22 13:24:45 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define F80_MAXDIGITS_B10 11494
 # define F80_MAXDEC_B10 11494
 # define F80_MAXFRAC_B10 11494
+
 /*
 **	Union to extract fields from a long double.
 **	The long double should be a 80-bit extended precision
@@ -28,7 +29,7 @@
 */
 typedef union		u_ldext
 {
-	t_float80		n;
+	t_float80	n;
 	struct
 	{
 		uint64_t	mantissa;
@@ -50,7 +51,7 @@ typedef struct		s_f80_data
 	uint64_t	mantissa;
 }					t_f80_data;
 
-typedef struct 		s_f80_b10
+typedef struct		s_f80_b10
 {
 	uint8_t		sign;
 	char		decimal[F80_MAXDEC_B10];
@@ -65,7 +66,8 @@ typedef struct 		s_f80_b10
 	uint8_t		inf;
 }					t_f80_b10;
 
-t_f80_data		ft_float80_extract(t_float80 n);
-void			ft_float80_b10(t_f80_b10 *b10, t_float80 n, size_t pre, uint8_t sci);
+t_f80_data			ft_float80_extract(t_float80 n);
+void				ft_float80_b10(t_f80_b10 *b10, t_float80 n, size_t pre,
+	uint8_t sci);
 
 #endif
