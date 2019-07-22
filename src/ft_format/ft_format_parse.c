@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format_parse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:36:53 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/17 02:51:48 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/22 10:38:38 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ static int	is_type(char c)
 
 static int	format_valid(t_format *f)
 {
-	if (f->type == 'e' || f->type == 'f' || f->type =='E' || f->type == 'F'
-		|| f->type == 'c' || f->type =='s')
-		return (f->length_mod == 0  || f->length_mod == 1);
-	if (f->type == 'd' || f-> type == 'i' || f->type == 'o' || f->type == 'u'
+	if (f->type == 'e' || f->type == 'f' || f->type == 'E' || f->type == 'F'
+		|| f->type == 'c' || f->type == 's')
+		return (f->length_mod == 0 || f->length_mod == 1);
+	if (f->type == 'd' || f->type == 'i' || f->type == 'o' || f->type == 'u'
 		|| f->type == 'x' || f->type == 'b')
 		return (f->length_mod >= -2 && f->length_mod <= 2);
 	if (f->type == 'p')

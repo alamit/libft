@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format_write.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 12:31:50 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/12 14:54:31 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/22 10:34:58 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <ft_ctype.h>
 #include <stddef.h>
 
-static int (* const conv[26])(t_buff *, t_format *, va_list) = {
+static int (*const g_conv[26])(t_buff *, t_format *, va_list) = {
 	NULL,
 	ft_vfconv_b,
 	ft_vfconv_c,
@@ -49,7 +49,7 @@ int			ft_format_write(t_buff *buf, t_format *f, va_list ap)
 {
 	if (f->type == '%')
 		return (ft_fconv_c(buf, f, '%'));
-	else if (f->type - 'a' < 0 || f->type - 'a' > 25 || !conv[f->type - 'a'])
+	else if (f->type - 'a' < 0 || f->type - 'a' > 25 || !g_conv[f->type - 'a'])
 		return (0);
-	return (conv[f->type - 'a'](buf, f, ap));
+	return (g_conv[f->type - 'a'](buf, f, ap));
 }

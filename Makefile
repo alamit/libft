@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alamit <alamit@student.42.fr>              +#+  +:+       +#+         #
+#    By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2019/07/12 13:06:19 by alamit           ###   ########.fr        #
+#    Updated: 2019/07/22 10:26:59 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,6 @@ SRC				= 	$(FT_BIGINT) \
 					$(FT_CONV) \
 					$(FT_CTYPE) \
 					$(FT_FLOAT) \
-					$(FT_FLOAT_PARAMS) \
 					$(FT_FORMAT) \
 					$(FT_LIST) \
 					$(FT_MATH) \

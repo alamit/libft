@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_float80_b10.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 11:32:51 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/17 06:56:35 by alamit           ###   ########.fr       */
+/*   Updated: 2019/07/22 10:30:58 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_bigint.h>
 #include <ft_float.h>
-#include <ft_float_params.h>
 #include <stddef.h>
 #include <ft_ctype.h>
 #include <ft_math.h>
@@ -87,7 +86,7 @@ static void		compute(t_f80_b10 *b10, t_bigint *p, t_bigint *q)
 		b10->decimal[i++] = ft_num2char(ft_bigint_div(p, q, 9));
 		ft_bigint_mulpow10(p, 1);
 		if (b10->sci)
-			break;
+			break ;
 	}
 	b10->dec_len = i;
 	i = (b10->sci || b10->exp >= 0 ? 0 : -b10->exp);
