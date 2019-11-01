@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_grid_del.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 11:28:26 by alamit            #+#    #+#             */
-/*   Updated: 2019/10/14 17:53:43 by alamit           ###   ########.fr       */
+/*   Created: 2019/09/21 16:04:14 by alamit            #+#    #+#             */
+/*   Updated: 2019/10/14 18:25:07 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/types.h>
-#include <inttypes.h>
+#include <ft_grid.h>
+#include <stdlib.h>
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void			ft_grid_del(t_grid **grid)
 {
-	void	*res;
+	size_t	i;
 
-	res = dst;
-	while (n / sizeof(uint64_t))
-	{
-		*(uint64_t *)dst = *(uint64_t *)src;
-		src += sizeof(uint64_t);
-		dst += sizeof(uint64_t);
-		n -= sizeof(uint64_t);
-	}
-	while (n)
-	{
-		*(unsigned char *)dst = *(unsigned char *)src;
-		src++;
-		dst++;
-		n--;
-	}
-	return (res);
+	if (!grid || !*grid)
+		return ;
+	i = -1;
+	while (++i < (*grid)->max_l)
+		free((*grid)->g[i]);
+	free((*grid)->g);
+	free(*grid);
+	*grid = NULL;
 }

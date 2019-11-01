@@ -6,7 +6,7 @@
 /*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 20:18:26 by alamit            #+#    #+#             */
-/*   Updated: 2019/03/27 22:56:02 by alamit           ###   ########.fr       */
+/*   Updated: 2019/09/19 23:25:09 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ char			*ft_strjoin(const char *s1, const char *s2);
 char			*ft_strnjoin(const char *s1, const char *s2, size_t n);
 char			*ft_strtrim(const char *s);
 char			**ft_strsplit(const char *s, char c);
+int				ft_isint(const char *s);
 
 #endif

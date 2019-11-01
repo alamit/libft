@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_indexof.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 11:28:26 by alamit            #+#    #+#             */
-/*   Updated: 2019/10/14 17:53:43 by alamit           ###   ########.fr       */
+/*   Created: 2019/10/14 18:40:41 by alamit            #+#    #+#             */
+/*   Updated: 2019/10/14 18:41:41 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sys/types.h>
-#include <inttypes.h>
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+size_t	ft_indexof(int *sorted, int elem)
 {
-	void	*res;
+	size_t	res;
 
-	res = dst;
-	while (n / sizeof(uint64_t))
-	{
-		*(uint64_t *)dst = *(uint64_t *)src;
-		src += sizeof(uint64_t);
-		dst += sizeof(uint64_t);
-		n -= sizeof(uint64_t);
-	}
-	while (n)
-	{
-		*(unsigned char *)dst = *(unsigned char *)src;
-		src++;
-		dst++;
-		n--;
-	}
+	res = 0;
+	while (sorted[res] != elem)
+		res++;
 	return (res);
 }

@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_opts.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 11:28:26 by alamit            #+#    #+#             */
-/*   Updated: 2019/10/14 17:53:43 by alamit           ###   ########.fr       */
+/*   Created: 2019/09/21 14:36:57 by alamit            #+#    #+#             */
+/*   Updated: 2019/10/14 18:32:27 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/types.h>
-#include <inttypes.h>
+#ifndef FT_OPTS_H
+# define FT_OPTS_H
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	void	*res;
+# include <inttypes.h>
 
-	res = dst;
-	while (n / sizeof(uint64_t))
-	{
-		*(uint64_t *)dst = *(uint64_t *)src;
-		src += sizeof(uint64_t);
-		dst += sizeof(uint64_t);
-		n -= sizeof(uint64_t);
-	}
-	while (n)
-	{
-		*(unsigned char *)dst = *(unsigned char *)src;
-		src++;
-		dst++;
-		n--;
-	}
-	return (res);
-}
+typedef uint64_t	t_opts;
+
+int					ft_opts_toggle(t_opts *opts, char flag);
+int					ft_opts_parse(t_opts *opts, int *ac, char **av,
+									const char *valid);
+int					ft_opts_on(t_opts *opts, char flag);
+
+#endif

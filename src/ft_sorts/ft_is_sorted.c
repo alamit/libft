@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_is_sorted.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 11:28:26 by alamit            #+#    #+#             */
-/*   Updated: 2019/10/14 17:53:43 by alamit           ###   ########.fr       */
+/*   Created: 2019/10/13 19:43:58 by alamit            #+#    #+#             */
+/*   Updated: 2019/10/14 18:33:44 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/types.h>
-#include <inttypes.h>
+#include <ft_sorts.h>
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+static int	cmp(int a, int b, t_order order)
 {
-	void	*res;
+	if (order == ASCENDING)
+		return (a < b);
+	else if (order == DESCENDING)
+		return (a > b);
+	else
+		return (0);
+}
 
-	res = dst;
-	while (n / sizeof(uint64_t))
+int			ft_is_sorted(int *arr, size_t len, t_order order)
+{
+	size_t	i;
+
+	i = 0;
+	if (!arr)
+		return (0);
+	while (++i < len)
 	{
-		*(uint64_t *)dst = *(uint64_t *)src;
-		src += sizeof(uint64_t);
-		dst += sizeof(uint64_t);
-		n -= sizeof(uint64_t);
+		if (!cmp(arr[i - 1], arr[i], order))
+			return (0);
 	}
-	while (n)
-	{
-		*(unsigned char *)dst = *(unsigned char *)src;
-		src++;
-		dst++;
-		n--;
-	}
-	return (res);
+	return (1);
 }

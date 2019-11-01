@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_grid_fill_col.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+        */
+/*   By: alamit <alamit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/18 20:21:09 by alamit            #+#    #+#             */
-/*   Updated: 2019/07/22 15:08:06 by alamit           ###   ########.fr       */
+/*   Created: 2019/09/21 16:02:14 by alamit            #+#    #+#             */
+/*   Updated: 2019/09/21 18:00:34 by alamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include <ft_grid.h>
 
-# include <ft_stdio.h>
+int				ft_grid_fill_col(t_grid *grid, size_t c, char x)
+{
+	size_t	i;
 
-#endif
+	if (!grid || c >= grid->max_l)
+		return (-1);
+	i = 0;
+	while (i < grid->max_c)
+	{
+		grid->g[i][c] = x;
+		++i;
+	}
+	return (0);
+}

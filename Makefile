@@ -6,19 +6,19 @@
 #    By: alamit <alamit@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/10 14:37:28 by alamit            #+#    #+#              #
-#    Updated: 2019/07/22 15:08:26 by alamit           ###   ########.fr        #
+#    Updated: 2019/10/14 18:42:35 by alamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # GLOBAL CONFIG -------------------------------------------------------------- #
 
-NAME = libftprintf.a
+NAME = libft.a
 
 DEBUG_EXEC = draft
 DEBUG_MAIN = $(DEBUG_EXEC).c
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS += -Wall -Wextra -Werror
 IFLAGS = $(INC_DIR:%=-I%)
 RM = rm -rf
 
@@ -40,7 +40,11 @@ SRC				= 	$(FT_BIGINT) \
 					$(FT_MATH) \
 					$(FT_STDIO) \
 					$(FT_STRING) \
-					$(FT_VPRINTF)
+					$(FT_VPRINTF) \
+					$(FT_STACK) \
+					$(FT_SORTS) \
+					$(FT_OPTS) \
+					$(FT_GRID)
 
 OBJ				=	$(SRC:%.c=$(OBJ_DIR)/%.o)
 
@@ -56,7 +60,7 @@ INCLUDE			=	ft_bigint.h \
 					ft_stdio.h \
 					ft_string.h \
 					ft_vprintf.h \
-					ft_printf.h
+					ft_stack.h
 
 FT_BIGINT		=	ft_bigint_add.c \
 					ft_bigint_cmp.c \
@@ -173,6 +177,16 @@ FT_MATH			=	ft_abs.c \
 					ft_log.c
 FT_MATH			:=	$(FT_MATH:%.c=ft_math/%.c)
 
+FT_STACK		=	ft_stack_new.c \
+					ft_stack_pop.c \
+					ft_stack_push.c \
+					ft_stack_rotate_down.c \
+					ft_stack_rotate_up.c \
+					ft_stack_swap_first.c \
+					ft_stack_get.c \
+					ft_stack_del.c
+FT_STACK			:=	$(FT_STACK:%.c=ft_stack/%.c)
+
 FT_STDIO		=	ft_putchar_fd.c \
 					ft_putchar.c \
 					ft_putendl_fd.c \
@@ -182,7 +196,8 @@ FT_STDIO		=	ft_putchar_fd.c \
 					ft_putstr.c \
 					ft_printf.c \
 					ft_dprintf.c \
-					ft_sprintf.c
+					ft_sprintf.c \
+					get_next_line.c
 FT_STDIO		:=	$(FT_STDIO:%.c=ft_stdio/%.c)
 
 FT_STRING		=	ft_bzero.c \
@@ -218,7 +233,8 @@ FT_STRING		=	ft_bzero.c \
 					ft_strsplit.c \
 					ft_strstr.c \
 					ft_strsub.c \
-					ft_strtrim.c
+					ft_strtrim.c \
+					ft_isint.c
 FT_STRING		:=	$(FT_STRING:%.c=ft_string/%.c)
 
 FT_VPRINTF		=	ft_vsprintf.c \
@@ -226,6 +242,24 @@ FT_VPRINTF		=	ft_vsprintf.c \
 					ft_vprintf.c \
 					ft_modvprintf.c
 FT_VPRINTF		:=	$(FT_VPRINTF:%.c=ft_vprintf/%.c)
+
+FT_SORTS		=	ft_ins_sort.c \
+					ft_is_sorted.c \
+					ft_indexof.c
+FT_SORTS		:=	$(FT_SORTS:%.c=ft_sorts/%.c)
+
+FT_OPTS			=	ft_opts_on.c \
+					ft_opts_parse.c \
+					ft_opts_toggle.c
+FT_OPTS			:=	$(FT_OPTS:%.c=ft_opts/%.c)
+
+FT_GRID			=	ft_grid_clear.c \
+					ft_grid_del.c \
+					ft_grid_fill_col.c \
+					ft_grid_getline.c \
+					ft_grid_new.c \
+					ft_grid_set.c
+FT_GRID			:=	$(FT_GRID:%.c=ft_grid/%.c)
 
 # ---------------------------------------------------------------------------- #
 
